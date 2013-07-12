@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ board.title }}
+{% endblock %}
+
+{% block board %}
+    {{ board.title }}<br />
+    {{ board.asset_url }}<br />
+    {{ board|json_encode }}<br />
+{% endblock %}
