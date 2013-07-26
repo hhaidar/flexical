@@ -4,7 +4,10 @@
   "description": "Our little status board.",
   "main": "app.js",
   "dependencies": {
-    "express": "~3.3.4"
+    "express": "*",
+    "swig": "*",
+    "socket.io": "*",
+    "consolidate": "*"
   },
   "devDependencies": {},
   "scripts": {
