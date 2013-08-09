@@ -1,8 +1,13 @@
-<!doctype html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>{% block title %}{% endblock %}</title>
+        <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+        <script src="{{ media_url }}/js/vendor/jquery.js" type="text/javascript"></script>
+        <script src="{{ media_url }}/js/vendor/underscore.js" type="text/javascript"></script>
+        <script src="{{ media_url }}/js/vendor/backbone.js" type="text/javascript"></script>
+        <script src="{{ media_url }}/js/board.js" type="text/javascript"></script>
 	</head>
     <body>
         {% block board %}{% endblock %}

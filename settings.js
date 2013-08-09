@@ -4,10 +4,6 @@ module.exports = {
         'main': {
             url: '/',
             title: 'Flexical Example'
-        },
-        'sde': {
-            url: '/sde',
-            title: 'SDE Status'
         }
     }
 }

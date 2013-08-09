@@ -4,7 +4,11 @@
   "description": "Our little status board.",
   "main": "app.js",
   "dependencies": {
-    "express": "~3.3.4"
+    "express": "*",
+    "consolidate": "*",
+    "express": "*",
+    "swig": "*",
+    "underscore": "*"
   },
   "devDependencies": {},
   "scripts": {
