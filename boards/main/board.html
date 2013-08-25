@@ -8,4 +8,10 @@
     {{ board.title }}<br />
     {{ board.asset_url }}<br />
     {{ board|json_encode }}<br />
+    <div class="widgets">
+        <div class="widget" data-class="weather"></div>
+        <div class="widget" data-class="iteration"></div>
+        <div class="widget" data-class="transit"></div>
+        <div class="widget" data-class="servers"></div>
+    </div>
 {% endblock %}

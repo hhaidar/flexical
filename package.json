@@ -5,9 +5,9 @@
   "main": "app.js",
   "dependencies": {
     "express": "*",
+    "consolidate": "*",
     "swig": "*",
-    "socket.io": "*",
-    "consolidate": "*"
+    "underscore": "*"
   },
   "devDependencies": {},
   "scripts": {
