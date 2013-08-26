@@ -1,6 +1,6 @@
 .flxl-widgets {
     height: 100%;
-    padding: 2.5px;
+    padding: 4px;
     .flex-display;
 }
 
@@ -18,7 +18,8 @@
 
 .flxl-widget {
     background: #fff;
-    margin: 2.5px;
+    margin: 4px;
+    font-size: 30px;
     .flex-display;
     .flex(1);
 }
@@ -33,4 +34,16 @@
 
 &[flxl-flex="4"] {
     .flex(4);
+}
+
+&[flxl-color="red"] {
+    background-color: #e64c65;
+}
+
+&[flxl-color="green"] {
+    background-color: #1fbba6;
+}
+
+&[flxl-color="blue"] {
+    background-color: #0fbbf1;
 }
