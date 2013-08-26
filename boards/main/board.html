@@ -5,13 +5,28 @@
 {% endblock %}
 
 {% block board %}
-    {{ board.title }}<br />
-    {{ board.asset_url }}<br />
-    {{ board|json_encode }}<br />
-    <div class="widgets">
-        <div class="widget" data-class="weather"></div>
-        <div class="widget" data-class="iteration"></div>
-        <div class="widget" data-class="transit"></div>
-        <div class="widget" data-class="servers"></div>
+    <div class="flxl-widgets">
+        <div class="flxl-row">
+            <div class="flxl-column" flxl-flex="4">
+                <div class="flxl-row">
+                    <div class="flxl-widget">
+                            {{ board.title }}<br />
+                            {{ board.asset_url }}<br />
+                            {{ board|json_encode }}<br />
+                    </div>
+                    <div class="flxl-widget"></div>
+                    <div class="flxl-widget"></div>
+                </div>
+                <div class="flxl-row">
+                    <div class="flxl-widget"></div>
+                    <div class="flxl-widget"></div>
+                </div>
+            </div>
+            <div class="flxl-column">
+                <div class="flxl-widget"></div>
+                <div class="flxl-widget"></div>
+                <div class="flxl-widget"></div>
+            </div>
+        </div>
     </div>
 {% endblock %}

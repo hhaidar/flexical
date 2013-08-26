@@ -1,0 +1,36 @@
+.flxl-widgets {
+    height: 100%;
+    padding: 2.5px;
+    .flex-display;
+}
+
+.flxl-row {
+    .flex-display;
+    .flex-direction(row);
+    .flex(1);
+}
+
+.flxl-column {
+    .flex-display;
+    .flex-direction(column);
+    .flex(1);
+}
+
+.flxl-widget {
+    background: #fff;
+    margin: 2.5px;
+    .flex-display;
+    .flex(1);
+}
+
+&[flxl-flex="2"] {
+    .flex(2);
+}
+
+&[flxl-flex="3"] {
+    .flex(3);
+}
+
+&[flxl-flex="4"] {
+    .flex(4);
+}

@@ -1,0 +1,39 @@
+* {
+    .box-sizing(border-box);
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #2c3e50;
+}
+
+.flx-loading {
+
+}
+
+.flxl-loading-indicator {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    &, &:after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 2px #fff solid;
+        .border-radius(100%);
+    }
+    &:after {
+        width: 25px;
+        height: 25px;
+        content: "";
+        position: absolute;
+        .animation(blink 1s infinite linear alternate);
+    }
+}
