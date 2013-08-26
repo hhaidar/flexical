@@ -2,6 +2,8 @@
     height: 100%;
     padding: 4px;
     .flex-display;
+    .animated;
+    .fadeInUp;
 }
 
 .flxl-row {
@@ -17,11 +19,13 @@
 }
 
 .flxl-widget {
-    background: #fff;
+    background-color: #fff;
     margin: 4px;
     font-size: 30px;
     .flex-display;
     .flex(1);
+    .box-shadow(0 0 20px #333);
+    .transition(background .4s ease-out);
 }
 
 &[flxl-flex="2"] {
