@@ -91,8 +91,12 @@
 [class*='flxl-text'] {
     text-align: center;
     margin: 0;
+    margin-bottom: 20px;
     small {
         font-size: 50%;
+    }
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -154,3 +158,41 @@
     margin-top: 10px;
     .transition(background-color .4s ease-out);
 }
+
+//
+// Negative Stuffs
+//
+
+.flxl-negative-list,
+.flxl-negative-item {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.flxl-negative-item {
+    background-color: #fff;
+    font-size: 60%;
+    color: #1fbba6; // TODO: This needs to respond to widget background
+    position: relative;
+    padding: 10px;
+    padding-right: 90px;
+    margin-bottom: 20px;
+    time {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+    }
+}
+
+.flxl-negative-item-name {
+    margin: 0;
+}
+
+.flxl-negative-alert {
+    background-color: #fad337;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 12px 0;
+}
+
