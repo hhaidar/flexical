@@ -1,3 +1,7 @@
+//
+// Widgets Base
+//
+
 .flxl-widgets {
     height: 100%;
     padding: 4px;
@@ -22,7 +26,8 @@
     background-color: #fff;
     margin: 4px;
     font-size: 30px;
-    .flex-display;
+    position: relative;
+    overflow: auto;
     .flex(1);
     .box-shadow(0 0 20px #333);
     .transition(background .4s ease-out);
@@ -42,12 +47,35 @@
 
 &[flxl-color="red"] {
     background-color: #e64c65;
+    color: #fff;
 }
 
 &[flxl-color="green"] {
     background-color: #1fbba6;
+    color: #fff;
 }
 
 &[flxl-color="blue"] {
     background-color: #0fbbf1;
+    color: #fff;
+}
+
+//
+// Widget Objects
+//
+
+[class*='flxl-text'] {
+    text-align: center;
+    margin: 0;
+}
+
+.flxl-text-heading {
+    font-size: 130%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.flxl-text-epic {
+    font-size: 200%;
+    text-align: center;
 }

@@ -3470,7 +3470,11 @@ body {
 body {
   background-color: #2c3e50;
   font-family: Roboto;
+  font-size: 14px;
   color: #555;
+}
+.flxl-loading {
+  display: none;
 }
 .flxl-loading-indicator {
   width: 50px;
@@ -3558,11 +3562,8 @@ body {
   background-color: #fff;
   margin: 4px;
   font-size: 30px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
+  position: relative;
+  overflow: auto;
   -webkit-flex: 1;
   -moz-flex: 1;
   -ms-flex: 1;
@@ -3596,10 +3597,26 @@ body {
 }
 [flxl-color="red"] {
   background-color: #e64c65;
+  color: #fff;
 }
 [flxl-color="green"] {
   background-color: #1fbba6;
+  color: #fff;
 }
 [flxl-color="blue"] {
   background-color: #0fbbf1;
+  color: #fff;
+}
+[class*='flxl-text'] {
+  text-align: center;
+  margin: 0;
+}
+.flxl-text-heading {
+  font-size: 130%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.flxl-text-epic {
+  font-size: 200%;
+  text-align: center;
 }
