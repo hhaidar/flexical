@@ -3473,6 +3473,9 @@ body {
   font-size: 14px;
   color: #555;
 }
+time {
+  display: block;
+}
 .flxl-loading {
   display: none;
 }
@@ -3577,6 +3580,18 @@ body {
   -ms-transition: background 0.4s ease-out;
   transition: background 0.4s ease-out;
 }
+[flxl-flex="0"] {
+  -webkit-flex: 0 auto;
+  -moz-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+[flxl-flex="1"] {
+  -webkit-flex: 2;
+  -moz-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
 [flxl-flex="2"] {
   -webkit-flex: 2;
   -moz-flex: 2;
@@ -3595,28 +3610,35 @@ body {
   -ms-flex: 4;
   flex: 4;
 }
+[flxl-color] {
+  color: #fff;
+}
 [flxl-color="red"] {
   background-color: #e64c65;
-  color: #fff;
 }
 [flxl-color="green"] {
   background-color: #1fbba6;
-  color: #fff;
 }
 [flxl-color="blue"] {
   background-color: #0fbbf1;
-  color: #fff;
+}
+[flxl-color="none"] {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 [class*='flxl-text'] {
   text-align: center;
   margin: 0;
 }
+[class*='flxl-text'] small {
+  font-size: 50%;
+}
 .flxl-text-heading {
   font-size: 130%;
-  text-align: center;
   text-transform: uppercase;
 }
 .flxl-text-epic {
   font-size: 200%;
-  text-align: center;
 }

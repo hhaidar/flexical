@@ -33,6 +33,18 @@
     .transition(background .4s ease-out);
 }
 
+//
+// Widget Sizing
+//
+
+&[flxl-flex="0"] {
+    .flex(0 auto);
+}
+
+&[flxl-flex="1"] {
+    .flex(2);
+}
+
 &[flxl-flex="2"] {
     .flex(2);
 }
@@ -45,19 +57,29 @@
     .flex(4);
 }
 
+//
+// Widget Colors
+//
+
+&[flxl-color] {
+    color: #fff;
+}
+
 &[flxl-color="red"] {
     background-color: #e64c65;
-    color: #fff;
 }
 
 &[flxl-color="green"] {
     background-color: #1fbba6;
-    color: #fff;
 }
 
 &[flxl-color="blue"] {
     background-color: #0fbbf1;
-    color: #fff;
+}
+
+&[flxl-color="none"] {
+    background-color: transparent;
+    .box-shadow(none);
 }
 
 //
@@ -67,15 +89,16 @@
 [class*='flxl-text'] {
     text-align: center;
     margin: 0;
+    small {
+        font-size: 50%;
+    }
 }
 
 .flxl-text-heading {
     font-size: 130%;
-    text-align: center;
     text-transform: uppercase;
 }
 
 .flxl-text-epic {
     font-size: 200%;
-    text-align: center;
 }
