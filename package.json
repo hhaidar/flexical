@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "*",
     "consolidate": "*",
-    "swig": "*",
+    "swig": "0.14.0",
     "underscore": "*"
   },
   "devDependencies": {},
