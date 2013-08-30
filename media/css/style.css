@@ -3645,8 +3645,14 @@ time {
   font-size: 130%;
   text-transform: uppercase;
 }
+.flxl-text-small {
+  font-size: 90%;
+}
+.flxl-text-medmium {
+  font-size: 100%;
+}
 .flxl-text-epic {
-  font-size: 200%;
+  font-size: 250%;
 }
 .flxl-status-list,
 .flxl-status-item {
@@ -3739,4 +3745,12 @@ time {
   text-align: center;
   text-transform: uppercase;
   padding: 12px 0;
+}
+.flxl-split {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.flxl-split .flxl-split-item {
+  width: 50%;
+  float: left;
 }
