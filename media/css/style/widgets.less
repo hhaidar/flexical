@@ -24,8 +24,9 @@
 
 .flxl-widget {
     background-color: #fff;
-    margin: 4px;
     font-size: 30px;
+    padding: 30px;
+    margin: 4px;
     position: relative;
     overflow: auto;
     .flex(1);
@@ -37,23 +38,23 @@
 // Widget Sizing
 //
 
-&[flxl-flex="0"] {
+[flxl-flex="0"] {
     .flex(0 auto);
 }
 
-&[flxl-flex="1"] {
+[flxl-flex="1"] {
     .flex(2);
 }
 
-&[flxl-flex="2"] {
+[flxl-flex="2"] {
     .flex(2);
 }
 
-&[flxl-flex="3"] {
+[flxl-flex="3"] {
     .flex(3);
 }
 
-&[flxl-flex="4"] {
+[flxl-flex="4"] {
     .flex(4);
 }
 
@@ -61,29 +62,30 @@
 // Widget Colors
 //
 
-&[flxl-color] {
+[flxl-color] {
     color: #fff;
 }
 
-&[flxl-color="red"] {
+[flxl-color="red"] {
     background-color: #e64c65;
 }
 
-&[flxl-color="green"] {
+[flxl-color="green"] {
     background-color: #1fbba6;
 }
 
-&[flxl-color="blue"] {
+[flxl-color="blue"] {
     background-color: #0fbbf1;
 }
 
-&[flxl-color="none"] {
+[flxl-color="none"] {
     background-color: transparent;
+    padding: 0;
     .box-shadow(none);
 }
 
 //
-// Widget Objects
+// Text
 //
 
 [class*='flxl-text'] {
@@ -101,4 +103,54 @@
 
 .flxl-text-epic {
     font-size: 200%;
+}
+
+//
+// Status Lists
+//
+
+.flxl-status-list,
+.flxl-status-item {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.flxl-status-item {
+    color: #aaa;
+    margin-bottom: 20px;
+    .transition(color .4s ease-out);
+    .animated;
+    &[flxl-status="success"] {
+        color: #1fbba6;
+        .flxl-status-item-state {
+            background-color: #1fbba6;
+        }
+    }
+    &[flxl-status="failure"] {
+        color: #e64c65;
+        .tada;
+        .flxl-status-item-state {
+            background-color: #e64c65;
+        }
+    }
+    &[flxl-status="running"] {
+        color: #0fbbf1;
+        .pulse;
+        .flxl-status-item-state {
+            background-color: #0fbbf1;
+        }
+    }
+}
+
+.flxl-status-item-name {
+    margin: 0;
+    font-size: 80%;
+}
+
+.flxl-status-item-state {
+    background-color: #aaa;
+    height: 20px;
+    margin-top: 10px;
+    .transition(background-color .4s ease-out);
 }

@@ -3563,8 +3563,9 @@ time {
 }
 .flxl-widget {
   background-color: #fff;
-  margin: 4px;
   font-size: 30px;
+  padding: 30px;
+  margin: 4px;
   position: relative;
   overflow: auto;
   -webkit-flex: 1;
@@ -3624,6 +3625,7 @@ time {
 }
 [flxl-color="none"] {
   background-color: transparent;
+  padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -3641,4 +3643,67 @@ time {
 }
 .flxl-text-epic {
   font-size: 200%;
+}
+.flxl-status-list,
+.flxl-status-item {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.flxl-status-item {
+  color: #aaa;
+  margin-bottom: 20px;
+  -webkit-transition: color 0.4s ease-out;
+  -moz-transition: color 0.4s ease-out;
+  -o-transition: color 0.4s ease-out;
+  -ms-transition: color 0.4s ease-out;
+  transition: color 0.4s ease-out;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.flxl-status-item[flxl-status="success"] {
+  color: #1fbba6;
+}
+.flxl-status-item[flxl-status="success"] .flxl-status-item-state {
+  background-color: #1fbba6;
+}
+.flxl-status-item[flxl-status="failure"] {
+  color: #e64c65;
+  -webkit-animation-name: tada;
+  -moz-animation-name: tada;
+  -o-animation-name: tada;
+  animation-name: tada;
+}
+.flxl-status-item[flxl-status="failure"] .flxl-status-item-state {
+  background-color: #e64c65;
+}
+.flxl-status-item[flxl-status="running"] {
+  color: #0fbbf1;
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -o-animation-name: pulse;
+  animation-name: pulse;
+}
+.flxl-status-item[flxl-status="running"] .flxl-status-item-state {
+  background-color: #0fbbf1;
+}
+.flxl-status-item-name {
+  margin: 0;
+  font-size: 80%;
+}
+.flxl-status-item-state {
+  background-color: #aaa;
+  height: 20px;
+  margin-top: 10px;
+  -webkit-transition: background-color 0.4s ease-out;
+  -moz-transition: background-color 0.4s ease-out;
+  -o-transition: background-color 0.4s ease-out;
+  -ms-transition: background-color 0.4s ease-out;
+  transition: background-color 0.4s ease-out;
 }
