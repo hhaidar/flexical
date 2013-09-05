@@ -9,7 +9,6 @@ var widgets = {};
 //
 // Weather
 //
-
 widgets.weather = new Widget({
     id: 'weather',
     fetch: function(widget) {
@@ -21,7 +20,6 @@ widgets.weather = new Widget({
 //
 // Iteration
 //
-
 widgets.iteration = new Widget({
     id: 'iteration',
     fetch: function(widget) {
@@ -33,7 +31,6 @@ widgets.iteration = new Widget({
 //
 // Servers
 //
-
 widgets.servers = new Widget({
     id: 'servers',
     fetch: function(widget) {
@@ -45,7 +42,6 @@ widgets.servers = new Widget({
 //
 // Transit
 //
-
 widgets.transit = new Widget({
     id: 'transit',
     fetch: function(widget) {

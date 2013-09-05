@@ -16,10 +16,13 @@ var app = express(),
     server = http.createServer(app),
     io = socketio.listen(server);
 
-var Widget = require('./lib/widget.js');
+var Board = require('./lib/board.js');
 
 var boards = {};
 
+//
+// Config
+//
 app.configure(function() {
     app.engine('.html', cons.swig);
     app.set('view engine', 'html');
@@ -27,7 +30,7 @@ app.configure(function() {
         root: 'templates',
         allowErrors: true,
         cache: false
-    });
+    });	
     app.set('views', 'templates');
     app.use('/media', express.static(__dirname + '/media'));
 });
@@ -40,36 +43,48 @@ io.sockets.on('connection', function(client) {
 });
 
 //
+// Home
+//
+app.get('/', function(req, res) {
+	res.render('boards.html', {
+		media_url: '/media',
+		boards: boards
+	});
+});
+
+//
 // Load them boards
 //
-
 _.each(settings.boards, function(board, id) {
     if (!id.match(/^([\w.-]*)$/i)) {
         throw new Error('Not a valid Board ID: ' + id);
         return;
     }
-    board.path = path.resolve('boards/' + id);
-    // Board asset url
+	board.path = path.resolve('boards/' + id);
+	// Create Board
+	boards[id] = new Board({
+		id: id,
+		name: board.name,
+		path: board.path = path.resolve('boards/' + id),
+		widgets: require(board.path + '/widgets.backend.js')
+	});
+	// Board Asset URL
     app.use('/assets/' + id, express.static(board.path + '/assets'));
     // Board url
-    app.get(board.url, function(req, res) {
+    app.get('/boards/' + id, function(req, res) {
         res.render(board.path + '/board.html', {
-            media_url: '/media',
+			media_url: '/media',
             board: {
-                title: board.title,
-                url: board.url,
+                name: board.name,
                 asset_url: '/assets/' + id
             }
         });
     });
-    // Load this board's widgets
-    board.widgets = {}; 
-    _.each(require(board.path + '/widgets.backend.js'), function(widget, id) {
-        board.widgets[id] = widget;
-        board.widgets[id].start();
-    });
-    // Add board to boards
-    boards[id] = board;
+	// Start Board
+	boards[id].start();
 });
 
+//
+// Here we go!
+//
 server.listen(settings.port);

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ board.title }}
+    {{ board.name }}
 {% endblock %}
 
 {% block board %}
     <div style="display: none;">
-        {{ board.title }}<br />
+        {{ board.name }}<br />
         {{ board.asset_url }}<br />
         {{ board|json_encode }}<br />
     </div>
