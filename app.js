@@ -48,7 +48,7 @@ io.sockets.on('connection', function(client) {
 app.get('/', function(req, res) {
 	res.render('boards.html', {
 		media_url: '/media',
-		boards: boards
+		boards: _.pluck(boards, 'name')
 	});
 });
 
@@ -66,17 +66,17 @@ _.each(settings.boards, function(board, id) {
 		id: id,
 		name: board.name,
 		path: board.path = path.resolve('boards/' + id),
-		widgets: require(board.path + '/widgets.backend.js')
+		jobs: require(board.path + '/jobs.js')
 	});
 	// Board Asset URL
-    app.use('/assets/' + id, express.static(board.path + '/assets'));
+    app.use('/boards/' + id + '/assets', express.static(board.path + '/assets'));
     // Board url
     app.get('/boards/' + id, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
             board: {
                 name: board.name,
-                asset_url: '/assets/' + id
+                asset_url: '/boards/' + id + '/assets'
             }
         });
     });
