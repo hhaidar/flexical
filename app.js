@@ -56,6 +56,7 @@ app.get('/', function(req, res) {
 // Load them boards
 //
 _.each(settings.boards, function(board, id) {
+    id = board.id || id;
     if (!id.match(/^([\w.-]*)$/i)) {
         throw new Error('Not a valid Board ID: ' + id);
         return;
