@@ -7,7 +7,8 @@
     "express": "*",
     "consolidate": "*",
     "swig": "0.14.0",
-    "underscore": "*"
+    "underscore": "*",
+    "socket.io": "*"
   },
   "devDependencies": {},
   "scripts": {
