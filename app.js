@@ -62,22 +62,30 @@ _.each(settings.boards, function(board, id) {
         return;
     }
 	board.path = path.resolve('boards/' + id);
+    board.url = '/boards/' + id;
 	// Create Board
 	boards[id] = new Board({
 		id: id,
 		name: board.name,
 		path: board.path = path.resolve('boards/' + id),
-		jobs: require(board.path + '/jobs.js')
+		jobs: require(board.path + '/jobs.js'),
+        io: io.of('/' + id)
 	});
 	// Board Asset URL
-    app.use('/boards/' + id + '/assets', express.static(board.path + '/assets'));
-    // Board url
-    app.get('/boards/' + id, function(req, res) {
+    app.use(board.url + '/assets', express.static(board.path + '/assets'));
+    // Board Widgets URL
+    app.get(board.url + '/widgets.js', function(req, res) {
+        res.sendfile(board.path + '/widgets.js');
+    });
+    // Board URL
+    app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
             board: {
+                id: id,
                 name: board.name,
-                asset_url: '/boards/' + id + '/assets'
+                asset_url: board.url + '/assets',
+                widgets_url: board.url + '/widgets.js'
             }
         });
     });

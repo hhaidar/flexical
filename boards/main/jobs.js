@@ -3,27 +3,36 @@
 //
 module.exports = {
     'weather': {
+        interval: 5,
         fetch: function(job) {
-            console.log('fetched weather')
-            job.continue();
+            job.continue({
+                temperature: 'HOT AS FUCK',
+                cloudy: 'YES'
+            });
         }
     },
     'servers': {
+        interval: 10,
         fetch: function(job) {
-            console.log('fetched servers')
-            job.continue();
+            job.continue({
+                servers: ['yes']
+            });
         }
     },
     'transit': {
         fetch: function(job) {
-            console.log('fetched transit')
-            job.continue();
+            job.continue({
+                delays: 'everyday',
+                vehicles: ['501', '502', '504']
+            });
         }
     },
     'iteration': {
         fetch: function(job) {
-            console.log('fetched iteration')
-            job.continue();
+            job.continue({
+                milestone: '2.24',
+                tickets: ['4152', '3781', '4123']
+            });
         }
     },
 }
