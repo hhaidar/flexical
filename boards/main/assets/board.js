@@ -1,4 +1,22 @@
 $(function() {
+    //
+    // Clock
+    //
+    Flexical.board.addWidget(new Flexical.Widget({
+        id: 'clock',
+        el: '#clock',
+        init: function() {
+            var that = this;
+            setInterval(function() {
+                var time = moment().format('hh:mm:ss')
+                  + '<small>' + moment().format('A') + '<small>';             
+                that.$el.find('time').html(time);
+            }, 500);
+        }
+    }));
+    //
+    // LEEEROOOY JEEEEEYNNKKKIIIINS
+    //
     Flexical.board.addWidget(new Flexical.Widget({
         id: 'jenkins',
         job: 'jenkins',
