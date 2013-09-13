@@ -42,8 +42,7 @@ var serverUpJob = function (job, servers) {
         percent_up = Math.floor(_(servers_up).size() / total_servers * 100);
 
         data = {
-            servers_down: servers_down,
-            servers_up: servers_up,
+            servers: servers,
             percent_up: percent_up
         };
 

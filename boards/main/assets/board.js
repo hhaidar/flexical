@@ -27,7 +27,6 @@ $(function() {
             _.each(tests, function(test) {
                 var $item = $list.find('[flxl-id=' + test.name + ']');
                 if ($item.length > 0) {
-                    console.log('replaced');
                     $item.replaceWith(template(test));
                     return;
                 }
@@ -35,5 +34,29 @@ $(function() {
             }, this);
             
         }
+    }));
+    //
+    // Servers
+    //
+    var ServerWidget = Flexical.Widget.extend({
+        update: function(data) {
+            var servers = data.servers;
+            var up = _.where(servers, { status: 'up' });
+            var down = _.where(servers, { status: 'down' });
+            this.$el.attr('flxl-color', down.length > 0 ? 'red' : 'green');
+            this.$('[flxl-id=percent]').text(data.percent_up + '%');
+            this.$('[flxl-id=count]').text(up.length);
+            this.$('[flxl-id=state]').text(down.length > 0 ? 'ERR' : 'OK');
+        }
+    })
+    Flexical.board.addWidget(new ServerWidget({
+        id: 'production-servers',
+        job: 'production-servers',
+        el: '#production-servers',
+    }));
+    Flexical.board.addWidget(new ServerWidget({
+        id: 'internal-servers',
+        job: 'internal-servers',
+        el: '#internal-servers',
     }));
 })

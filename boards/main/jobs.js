@@ -18,14 +18,6 @@ module.exports = {
             });
         }
     },
-    'servers': {
-        interval: 10,
-        fetch: function(job) {
-            job.continue({
-                servers: ['yes']
-            });
-        }
-    },
     'transit': {
         interval: 60,
         fetch: function(job) {
@@ -44,21 +36,18 @@ module.exports = {
             });
         }
     },
-
     'jenkins': {
         interval: 60,
         fetch: jenkinsJob
     },
-
     'production-servers': {
-        interval: 60,
+        interval: 3,
         fetch: function(job) {
             serverUpJob(job, settings.PRODUCTION);
         }
     },
-
     'internal-servers': {
-        interval: 60,
+        interval: 3,
         fetch: function(job) {
             serverUpJob(job, settings.INTERNAL);
         }
