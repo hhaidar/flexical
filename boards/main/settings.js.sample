@@ -21,7 +21,18 @@ INTERNAL = {
   }
 };
 
+ITERATION = {
+    data_source: {
+        ssl: true,
+        host: 'melbourne.sdelements.com',
+        file_path: '/status_board_data.json'
+    },
+    user: 'board',
+    pass: 'Password'
+}
+
 module.exports = {
   INTERNAL: INTERNAL,
-  PRODUCTION: PRODUCTION
+  PRODUCTION: PRODUCTION,
+  ITERATION: ITERATION
 };

@@ -1,3 +1,5 @@
+var request = require('request')
+var settings = require('../../settings')
 //
 // Jobs (Backend)
 //
@@ -30,10 +32,23 @@ module.exports = {
     'iteration': {
         interval: 60,
         fetch: function(job) {
-            job.continue({
-                milestone: '2.24',
-                tickets: ['4152', '3781', '4123']
-            });
+            var job_settings = settings.ITERATION
+            var uri = job_settings.data_source.ssl ? 'https' : 'http' +
+                      job_settings.data_source.host +
+                      job_settings.data_source.file_path
+            var options = {
+              'method': 'GET',
+              'uri': uri,
+              'rejectUnauthorized': false,
+              'auth': {
+                'user': job_settings.user,
+                'pass': job_settings.pass
+              },
+              'json': true
+            }
+          request.get(options, function (err, res, data) {
+              job.continue(data);
+          })
         }
     },
     'jenkins': {
