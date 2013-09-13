@@ -73,19 +73,14 @@ _.each(settings.boards, function(board, id) {
 	});
 	// Board Asset URL
     app.use(board.url + '/assets', express.static(board.path + '/assets'));
-    // Board Widgets URL
-    app.get(board.url + '/widgets.js', function(req, res) {
-        res.sendfile(board.path + '/widgets.js');
-    });
     // Board URL
     app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
+            asset_url: board.url + '/assets',
             board: {
                 id: id,
-                name: board.name,
-                asset_url: board.url + '/assets',
-                widgets_url: board.url + '/widgets.js'
+                name: board.name
             }
         });
     });

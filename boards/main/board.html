@@ -4,6 +4,21 @@
     {{ board.name }}
 {% endblock %}
 
+{% block boardjs %}
+    <script src="{{ asset_url }}/board.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block templates %}
+    {% raw %}
+        <script id="template-status-item" type="text/x-handlebars-template">
+            <li class="flxl-status-item" flxl-status="{{ status }}" flxl-id="{{ name }}">
+                <h3 class="flxl-status-item-name">{{ name }}</h3>
+                <div class="flxl-status-item-state"></div>
+            </li>
+        </script>
+    {% endraw %}
+{% endblock %}
+
 {% block board %}
     <div class="flxl-widgets">
         <div class="flxl-row">
@@ -19,25 +34,8 @@
                         <div class="flxl-donut"></div>
                         <h3 class="flxl-text-epic">OK</p>
                     </div>
-                    <div class="flxl-widget">
-                        <ul class="flxl-status-list">
-                            <li class="flxl-status-item" flxl-status="success">
-                                <h3 class="flxl-status-item-name">CasperJS</h3>
-                                <div class="flxl-status-item-state" flxl-color="green"></div>
-                            </li>
-                            <li class="flxl-status-item" flxl-status="success">
-                                <h3 class="flxl-status-item-name">DjangoSecurity</h3>
-                                <div class="flxl-status-item-state" flxl-color="green"></div>
-                            </li>
-                            <li class="flxl-status-item" flxl-status="running">
-                                <h3 class="flxl-status-item-name">SDETestPostgres</h3>
-                                <div class="flxl-status-item-state" flxl-color="red"></div>
-                            </li>
-                            <li class="flxl-status-item" flxl-status="failure">
-                                <h3 class="flxl-status-item-name">SDETestSQLLite3</h3>
-                                <div class="flxl-status-item-state" flxl-color="red"></div>
-                            </li>
-                        </ul>
+                    <div id="jenkins" class="flxl-widget">
+                        <ul class="flxl-status-list"></ul>
                     </div>
                 </div>
                 <div class="flxl-row">

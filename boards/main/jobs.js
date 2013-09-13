@@ -53,15 +53,12 @@ module.exports = {
             }
             var jobs = [];
             request.get({
-                url: "http://192.168.1.16:8080/api/json",
+                url: 'http://192.168.1.16:8080/api/json',
                 json: true
             }, function (error, response, body) {
-                jobs = _(body.jobs).map(function (job) {
+                job.continue(_(body.jobs).map(function (job) {
                    return {'name': job.name, 'status': colormap[job.color]};
-                });
-                job.continue({
-                    jobs: jobs
-                });
+                }));
             });
 
         }
