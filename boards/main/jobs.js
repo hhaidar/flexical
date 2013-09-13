@@ -4,7 +4,7 @@
 //
 
 
-var jenkinsJob = require('./jenkins');
+var jenkinsJob = require('../../jobs/jenkins/jenkins.js');
 
 module.exports = {
     'weather': {

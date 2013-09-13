@@ -15,9 +15,7 @@ var jenkinsJob = function(job) {
     jobs = _(body.jobs).map(function (job) {
       return {'name': job.name, 'status': colormap[job.color]};
     });
-    job.continue({
-      jobs: jobs
-    });
+    job.continue(jobs);
   });
 };
 
