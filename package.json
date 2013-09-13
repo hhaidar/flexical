@@ -8,7 +8,9 @@
     "consolidate": "*",
     "swig": "0.14.0",
     "underscore": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "async": "*",
+    "request": "*"
   },
   "devDependencies": {},
   "scripts": {

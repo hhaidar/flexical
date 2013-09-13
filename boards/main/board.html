@@ -25,15 +25,21 @@
         <div class="flxl-row">
             <div class="flxl-column" flxl-flex="4">
                 <div class="flxl-row">
-                    <div class="flxl-widget" flxl-color="green">
-                        <h2 class="flxl-text-heading">Internal Servers</h2>
-                        <div class="flxl-donut"></div>
-                        <h3 class="flxl-text-epic">OK</p>
-                    </div>
-                    <div class="flxl-widget" flxl-color="green">
+                    <div id="production-servers" class="flxl-widget">
                         <h2 class="flxl-text-heading">Production Servers</h2>
-                        <div class="flxl-donut"></div>
-                        <h3 class="flxl-text-epic">OK</p>
+                        <div class="flxl-donut">
+                            <div flxl-id="percent"></div>
+                            <div flxl-id="count"></div>
+                        </div>
+                        <h3 class="flxl-text-epic" flxl-id="state"></p>
+                    </div>
+                    <div id="internal-servers" class="flxl-widget">
+                        <h2 class="flxl-text-heading">Internal Servers</h2>
+                        <div class="flxl-donut">
+                            <div flxl-id="percent"></div>
+                            <div flxl-id="count"></div>
+                        </div>
+                        <h3 class="flxl-text-epic" flxl-id="state"></p>
                     </div>
                     <div id="jenkins" class="flxl-widget">
                         <ul class="flxl-status-list"></ul>
