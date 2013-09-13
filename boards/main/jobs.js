@@ -3,6 +3,12 @@
 //
 //
 
+
+var jenkinsJob  = require('../../jobs/jenkins/jenkins.js');
+var serverUpJob = require('../../jobs/servers/servers.js');
+
+var servers     = require('../../servers_config.js');
+
 module.exports = {
     'weather': {
         interval: 60,
@@ -39,8 +45,19 @@ module.exports = {
             });
         }
     },
+
     'jenkins': {
-        interval: 5, // for testing
-        fetch: require('../../jobs/jenkins/jenkins.js')
+        interval: 60,
+        fetch: jenkinsJob
+    },
+
+    'production-servers': {
+        interval: 60,
+        fetch: function(job) { serverUpJob(job, servers.PRODUCTION); }
+    },
+
+    'internal-servers': {
+        interval: 60,
+        fetch: function(job) { serverUpJob(job, servers.INTERNAL); }
     }
 };
