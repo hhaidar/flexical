@@ -4,6 +4,7 @@
     {{ board.name }}
 {% endblock %}
 
+{% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 
@@ -11,6 +12,7 @@
     <div class="flxl-widgets">
         <div class="flxl-row">
             {{ clock.view('clock') }}
+            {{ weather.view('weather') }}
             {{ servers.view('production-servers', 'Production Servers') }}
             {{ servers.view('internal-servers', 'Internal Servers') }}
         </div>

@@ -5,6 +5,9 @@ module.exports = {
         'clock': {
             type: 'clock'
         },
+        'weather': {
+            type: 'weather'
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,
