@@ -3,7 +3,7 @@
         init: function() {
             var that = this;
             setInterval(function() {
-                var time = moment().format('hh:mm:ss')
+                var time = moment().format('hh:mm')
                   + '<small>' + moment().format('A') + '<small>';             
                 that.$el.find('time').html(time);
             }, 500);
