@@ -8,6 +8,9 @@ module.exports = {
         'weather': {
             type: 'weather'
         },
+        'chat': {
+            type: 'chat'
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,
