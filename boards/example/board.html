@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ board.name }}
+{% endblock %}
+
+
+{% block board %}
+    <div class="flxl-widgets">
+        <div class="flxl-row">
+            {% include '../widgets/servers/widget.html' %}
+        </div>
+    </div>
+{% endblock %}

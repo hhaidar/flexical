@@ -2,7 +2,8 @@
 // Flexical - The Fantastically Flexible Status Board
 //
 
-var _ = require('underscore'),
+var fs = require('fs'),
+    _ = require('underscore'),
     path = require('path'),
     express = require('express'),
     socketio = require('socket.io'),
@@ -30,17 +31,12 @@ app.configure(function() {
         root: 'templates',
         allowErrors: true,
         cache: false
-    });	
+    });
     app.set('views', 'templates');
     app.use('/media', express.static(__dirname + '/media'));
 });
-
 io.set('transports', ['websocket']);
 io.set('log level', 0);
-
-io.sockets.on('connection', function(client) {
-    client.emit('init', 'hello');
-});
 
 //
 // Home
@@ -55,40 +51,31 @@ app.get('/', function(req, res) {
 //
 // Load them boards
 //
-_.each(settings.boards, function(board, id) {
-    id = board.id || id;
-    if (!id.match(/^([\w.-]*)$/i)) {
-        throw new Error('Not a valid Board ID: ' + id);
+_.each(fs.readdirSync('./boards'), function(directory) {
+    if (!fs.existsSync('./boards/' + directory + '/board.js')) {
+        // No board.js found, nothing to do here
         return;
     }
-	board.path = path.resolve('boards/' + id);
-    board.url = '/boards/' + id;
-	// Create Board
-	boards[id] = new Board({
-		id: id,
-		name: board.name,
-		path: board.path = path.resolve('boards/' + id),
-		jobs: require(board.path + '/jobs.js'),
-        io: io.of('/' + id)
-	});
-	// Board Asset URL
+    var board = new Board(require('./boards/' + directory + '/board.js'));
+    board.path = path.resolve('./boards/' + directory);
+    board.url = '/boards/' + board.id;
+    board.io = io.of('/' + board.id);
     app.use(board.url + '/assets', express.static(board.path + '/assets'));
-    // Board URL
     app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
             asset_url: board.url + '/assets',
             board: {
-                id: id,
+                id: board.id,
                 name: board.name
             }
         });
     });
-	// Start Board
-	boards[id].start();
+    boards[board.id] = board;
+    board.start();
 });
 
 //
 // Here we go!
 //
-server.listen(settings.port);
+server.listen(settings.port || 3000);
