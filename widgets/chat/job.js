@@ -6,12 +6,12 @@ var request = require('request'),
 
 var chatJob = function(job) {
     var chatURL = url.format({
-        'protocol': 'https:',
-        'hostname': 'cairo.sdelements.com',
-        'port': 9000,
+        'protocol': job.options.method+':',
+        'hostname': job.options.host,
+        'port': job.options.port,
         'query': {
-            username: 'XXXXX',
-            password: 'XXXXX'
+            username: job.options.user,
+            password: job.options.pass
         }
     });
 
@@ -20,15 +20,8 @@ var chatJob = function(job) {
     });
 
     socket.on('connect', function() {
-        console.log('connected');
-        room_id = '51bb59ae8603c0f01f0002af'
-        socket.emit('room:join', room_id, function(room) {
-            console.log('Joined room');
-            socket.emit('room:messages:new', {
-                room: room_id,
-                text: 'Hello all you beautiful people!'
-            });
-        });        
+        socket.emit('room:join', job.options.room_id, function(room) {
+        });
     });
 
     socket.on('disconnect', function() {
@@ -40,13 +33,11 @@ var chatJob = function(job) {
     });
 
     socket.on('room:messages:new', function(message) {
-        console.log('New message: "' + message.text + '" by "' + message.owner + '" in room "' + message.room + '#');
         job.continue(message, false);
     });
 
 }
 
 module.exports = {
-    interval: 60,
     fetch: chatJob
 }

@@ -9,7 +9,15 @@ module.exports = {
             type: 'weather'
         },
         'chat': {
-            type: 'chat'
+            type: 'chat',
+            options: {
+                method:'https',
+                host:'',
+                port:9000,
+                room_id:'',
+                user:'',
+                pass:''
+            }
         },
         'internal-servers': {
             type: 'servers',
