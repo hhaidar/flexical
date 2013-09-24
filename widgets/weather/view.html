@@ -1,6 +1,7 @@
 {% macro view id name %}
     <div id="{{ id }}" class="flxl-widget" flxl-color="blue">
         <h2 class="flxl-text-heading">{{ name }}</h2>
+        <canvas flxl-id="skycon" style="width: 100%; max-width: 400px;"></canvas>
         <div flxl-id="location"></div>
         <div>
             <span flxl-id="temp"></span>&deg;C
