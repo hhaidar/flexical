@@ -66,7 +66,12 @@ _.each(fs.readdirSync('./boards'), function(directory) {
         var files = _.map(_.uniq(_.pluck(board.widgets, 'type')), function(type) {
             return './widgets/' + type + '/view.js';
         });
-        res.send(uglify.minify(files).code);
+        res.set({
+            'Content-Type': 'text/javascript'
+        })
+        res.send(uglify.minify(files, {
+            compress: false,
+        }).code);
     });
     app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {

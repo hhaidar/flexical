@@ -1,1 +1,7 @@
-alert(1);
+(function() {
+    Flexical.views.servers = Flexical.Widget.extend({
+        initialize: function() {
+            alert('hello');
+        }
+    });
+})();
