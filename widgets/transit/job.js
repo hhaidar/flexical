@@ -4,7 +4,8 @@ var _ = require('underscore'),
 
 var transitJob = function(job) {
     request.get({
-        url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=ttc&t=0&stopId='+job.options.stop+'&r='+job.options.route,
+        url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a='+
+                 job.options.agency+'&t=0&stopId='+job.options.stop+'&r='+job.options.route,
     }, function (err, response, data) {
         if (err) {
             // YOLO

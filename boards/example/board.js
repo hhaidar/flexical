@@ -14,6 +14,7 @@ module.exports = {
         'transit': {
             type: 'transit',
             options: {
+                agency: 'ttc',
                 route: 501,
                 stop: 3080,
             }
