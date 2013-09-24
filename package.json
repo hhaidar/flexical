@@ -9,6 +9,7 @@
     "swig": "0.14.0",
     "underscore": "*",
     "socket.io": "*",
+    "uglify-js": "*",
     "async": "*",
     "request": "*"
   },
