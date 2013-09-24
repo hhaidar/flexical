@@ -4,11 +4,13 @@
     {{ board.name }}
 {% endblock %}
 
+{% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 
 {% block board %}
     <div class="flxl-widgets">
         <div class="flxl-row">
+            {{ clock.view('clock') }}
             {{ servers.view('production-servers', 'Production Servers') }}
             {{ servers.view('internal-servers', 'Internal Servers') }}
         </div>

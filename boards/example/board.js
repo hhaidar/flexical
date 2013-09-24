@@ -2,6 +2,9 @@ module.exports = {
     id: 'example',
     name: 'Example Board',
     widgets: {
+        'clock': {
+            type: 'clock'
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,
