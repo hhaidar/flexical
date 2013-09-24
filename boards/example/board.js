@@ -4,13 +4,17 @@ module.exports = {
     widgets: {
         'internal-servers': {
             type: 'servers',
-            interval: 60,
-            servers: ['test']
+            interval: 10,
+            options: {
+               servers: ['test']
+            }
         },
         'production-servers': {
             type: 'servers',
-            interval: 60,
-            servers: ['test']
+            interval: 10,
+            options: {
+               servers: ['test']
+            }
         }
     }
 }
