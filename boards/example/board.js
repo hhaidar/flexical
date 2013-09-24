@@ -6,7 +6,10 @@ module.exports = {
             type: 'clock'
         },
         'weather': {
-            type: 'weather'
+            type: 'weather',
+            options: {
+                location: 'Toronto'
+            }
         },
         'internal-servers': {
             type: 'servers',

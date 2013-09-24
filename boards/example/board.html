@@ -11,10 +11,16 @@
 {% block board %}
     <div class="flxl-widgets">
         <div class="flxl-row">
-            {{ clock.view('clock') }}
-            {{ weather.view('weather') }}
-            {{ servers.view('production-servers', 'Production Servers') }}
-            {{ servers.view('internal-servers', 'Internal Servers') }}
+            <div class="flxl-column">
+                {{ servers.view('production-servers', 'Production Servers') }}
+            </div>
+            <div class="flxl-column">
+                {{ servers.view('internal-servers', 'Internal Servers') }}
+            </div>
+            <div class="flxl-column" flxl-flex="0">
+                {{ clock.view('clock') }}
+                {{ weather.view('weather') }}
+            </div>
         </div>
     </div>
 {% endblock %}
