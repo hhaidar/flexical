@@ -1,0 +1,10 @@
+{% macro view id name %}
+    <div id="{{ id }}" class="flxl-widget" flxl-color="blue">
+        <h2 class="flxl-text-heading">{{ name }}</h2>
+        <div flxl-id="transit_stop_title"></div>
+        <div flxl-id="transit_title"></div>
+         <div>
+            <span flxl-id="transit_minutes"></span> mins.
+        </div>
+    </div>
+{% endmacro %}

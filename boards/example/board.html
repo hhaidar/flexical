@@ -7,6 +7,7 @@
 {% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
+{% import '../widgets/transit/view.html' as transit %}
 
 {% block board %}
     <div class="flxl-board">
@@ -20,6 +21,7 @@
             <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
                 {{ clock.view('clock') }}
                 {{ weather.view('weather') }}
+                {{ transit.view('transit') }}
             </div>
         </div>
     </div>
