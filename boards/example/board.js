@@ -6,14 +6,14 @@ module.exports = {
             type: 'servers',
             interval: 10,
             options: {
-               servers: ['test']
+               servers: require('./settings.js').INTERNAL
             }
         },
         'production-servers': {
             type: 'servers',
             interval: 10,
             options: {
-               servers: ['test']
+               servers: require('./settings.js').PRODUCTION
             }
         }
     }

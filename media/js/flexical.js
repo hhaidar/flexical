@@ -33,7 +33,7 @@
     //
     Flexical.Widget = Backbone.View.extend({
         initialize: function() {
-            this.job = this.options.job;
+            this.job = this.options.id;
             this.init = this.options.init || this.init;
             this.update = this.options.update || this.update;
             this.on('job.update', this.update, this);
@@ -42,7 +42,8 @@
         init: function() {
             // Placeholder ATM
         },
-        update: function() {
+        update: function(data) {
+            console.log(data);
             // Placeholder ATM
         }
     });

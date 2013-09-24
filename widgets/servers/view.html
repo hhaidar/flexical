@@ -1,3 +1,10 @@
-<div class="flxl-widget">
-    SERVERS DAWG, YA DIG?
-</div>
+{% macro view id name %}
+    <div id="{{ id }}" class="flxl-widget">
+        <h2 class="flxl-text-heading">{{ name }}</h2>
+        <div class="flxl-donut">
+            <div flxl-id="percent"></div>
+            <div flxl-id="count"></div>
+        </div>
+        <h3 class="flxl-text-epic" flxl-id="state"></p>
+    </div>
+{% endmacro %}

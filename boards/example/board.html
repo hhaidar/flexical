@@ -4,11 +4,24 @@
     {{ board.name }}
 {% endblock %}
 
+{% import '../widgets/servers/view.html' as servers %}
 
 {% block board %}
     <div class="flxl-widgets">
         <div class="flxl-row">
-            {% include '../widgets/servers/view.html' %}
+            {{ servers.view('production-servers', 'Production Servers') }}
+            {{ servers.view('internal-servers', 'Internal Servers') }}
         </div>
     </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
