@@ -33,6 +33,7 @@
     //
     Flexical.Widget = Backbone.View.extend({
         initialize: function() {
+            this.setElement('#' + this.id);
             this.job = this.options.id;
             this.init = this.options.init || this.init;
             this.update = this.options.update || this.update;
