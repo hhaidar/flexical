@@ -9,7 +9,8 @@ var fs = require('fs'),
     socketio = require('socket.io'),
     cons = require('consolidate'),
     swig = require('swig'),
-    http = require('http');
+    http = require('http'),
+    uglify = require('uglify-js');
 
 var settings = require('./settings');
 
@@ -61,14 +62,18 @@ _.each(fs.readdirSync('./boards'), function(directory) {
     board.url = '/boards/' + board.id;
     board.io = io.of('/' + board.id);
     app.use(board.url + '/assets', express.static(board.path + '/assets'));
+    app.get(board.url + '/bundle.js', function(req, res) {
+        var files = _.map(_.uniq(_.pluck(board.widgets, 'type')), function(type) {
+            return './widgets/' + type + '/view.js';
+        });
+        res.send(uglify.minify(files).code);
+    });
     app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
             asset_url: board.url + '/assets',
-            board: {
-                id: board.id,
-                name: board.name
-            }
+            bundle_url: board.url + '/bundle.js',
+            board: board
         });
     });
     boards[board.id] = board;
