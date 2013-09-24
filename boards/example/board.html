@@ -7,6 +7,7 @@
 {% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
+{% import '../widgets/chat/view.html' as chat %}
 
 {% block board %}
     <div class="flxl-widgets">
@@ -15,6 +16,7 @@
             {{ weather.view('weather') }}
             {{ servers.view('production-servers', 'Production Servers') }}
             {{ servers.view('internal-servers', 'Internal Servers') }}
+            {{ chat.view('chat') }}
         </div>
     </div>
 {% endblock %}

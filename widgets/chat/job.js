@@ -5,14 +5,13 @@ var request = require('request'),
     _       = require('underscore');
 
 var chatJob = function(job) {
-    var jobs = [];
     var chatURL = url.format({
         'protocol': 'https:',
         'hostname': 'cairo.sdelements.com',
         'port': 9000,
         'query': {
-            username: 'XXXXXXX',
-            password: 'XXXXXXX'
+            username: 'XXXXX',
+            password: 'XXXXX'
         }
     });
 
@@ -20,14 +19,34 @@ var chatJob = function(job) {
         reconnect: true
     });
 
+    socket.on('connect', function() {
+        console.log('connected');
+        room_id = '51bb59ae8603c0f01f0002af'
+        socket.emit('room:join', room_id, function(room) {
+            console.log('Joined room');
+            socket.emit('room:messages:new', {
+                room: room_id,
+                text: 'Hello all you beautiful people!'
+            });
+        });        
+    });
+
+    socket.on('disconnect', function() {
+        console.log('disconnected');
+    });
+
+    socket.on('error', function(error) {
+       console.log(error);
+    });
+
     socket.on('room:messages:new', function(message) {
-        jobs = _(body.jobs).map(function (job) {
-          console.log('New message: "' + message.text + '" by "' + message.owner + '" in room "' + message.room + '#');
-          return 'New message: "' + message.text + '" by "' + message.owner + '" in room "' + message.room + '#';
-        });
-        job.continue(jobs, false);
+        console.log('New message: "' + message.text + '" by "' + message.owner + '" in room "' + message.room + '#');
+        job.continue(message, false);
     });
 
 }
 
-module.exports = chatJob;
+module.exports = {
+    interval: 60,
+    fetch: chatJob
+}
