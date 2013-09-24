@@ -11,6 +11,13 @@ module.exports = {
                 location: 'Toronto'
             }
         },
+        'transit': {
+            type: 'transit',
+            options: {
+                route: 501,
+                stop: 3080,
+            }
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,
