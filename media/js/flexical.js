@@ -16,11 +16,18 @@
             this.render();
         },
         render: function() {
+            this.$('.flxl-connection-status').addClass('hide');
             this.$('.flxl-widgets').addClass('hide');
         },
         listen: function() {
             var that = this;
             this.socket = io.connect('/' + this.id);
+            this.socket.on('connect', function() {
+                that.$('.flxl-connection-status').addClass('hide');
+            });
+            this.socket.on('disconnect', function() {
+                that.$('.flxl-connection-status').removeClass('hide');
+            });
             this.socket.on('job.update', function(id, data) {
                 _.each(_.where(that.widgets, { job: id }), function(widget) {
                     widget.trigger('job.update', data);
@@ -43,7 +50,7 @@
                     setTimeout(function() {
                         this.$('.flxl-widgets').removeClass('hide');
                     }, 200);
-                }, 1 * 1500);
+                }, 1 * 1000);
             }
         }
     });

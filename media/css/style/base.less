@@ -86,3 +86,22 @@ time {
         .animation(rotate 10s infinite linear reverse, blink 5s infinite linear alternate); 
     }
 }
+
+.flxl-connection-status {
+    background: rgba(0, 0, 0, 0.5);
+    .size(250px);
+    line-height: 250px;
+    text-align: center;
+    color: #fff;
+    font-size: 8em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    .border-radius(100%);
+    .animation(blink 1s infinite linear alternate);
+    &.hide {
+        display: none;
+    }
+}
