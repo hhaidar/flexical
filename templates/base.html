@@ -14,7 +14,9 @@
 	</head>
     <body>
         {% block board %}{% endblock %}
-        <div class="flxl-loading">
+        <div class="flxl-loading" style="display: block;">
+            <div class="flxl-loading-logo"></div>
+             <div class="flxl-loading-status"></div>
             <div class="flxl-loading-indicator"></div>
         </div>
         {% if board %}
