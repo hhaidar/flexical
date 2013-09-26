@@ -12,8 +12,6 @@ var fs = require('fs'),
     http = require('http'),
     uglify = require('uglify-js');
 
-var settings = require('./settings');
-
 var app = express(),
     server = http.createServer(app),
     io = socketio.listen(server);
@@ -88,4 +86,4 @@ _.each(fs.readdirSync('./boards'), function(directory) {
 //
 // Here we go!
 //
-server.listen(settings.port || 3000);
+server.listen(3000);
