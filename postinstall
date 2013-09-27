@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for dir in $(find widgets/* -maxdepth 0 -type d) ; do
+    if [ -f "$dir/package.json" ]; then
+        echo "Installing dependencies for $dir";
+        npm --prefix $dir install $dir;
+    fi
+done

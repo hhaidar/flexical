@@ -1,0 +1,11 @@
+{
+  "name": "flexical-clock",
+  "version": "0.0.1",
+  "description": "Tells you the time.",
+  "dependencies": {
+    "request": "*"
+  },
+  "repository": "",
+  "author": "Houssam Haidar",
+  "license": "BSD"
+}

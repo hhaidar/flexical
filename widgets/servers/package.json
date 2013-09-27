@@ -1,0 +1,12 @@
+{
+  "name": "flexical-servers",
+  "version": "0.0.1",
+  "description": "Is my server up?",
+  "dependencies": {
+    "request": "*",
+    "async": "*"
+  },
+  "repository": "",
+  "author": "Houssam Haidar",
+  "license": "BSD"
+}
