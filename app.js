@@ -10,7 +10,8 @@ var fs = require('fs'),
     cons = require('consolidate'),
     swig = require('swig'),
     http = require('http'),
-    uglify = require('uglify-js');
+    uglifyJS = require('uglify-js'),
+    uglifyCSS = require('uglifycss');
 
 var app = express(),
     server = http.createServer(app),
@@ -67,15 +68,29 @@ _.each(fs.readdirSync('./boards'), function(directory) {
         res.set({
             'Content-Type': 'text/javascript'
         })
-        res.send(uglify.minify(files, {
+        res.send(uglifyJS.minify(files, {
             compress: false,
         }).code);
+    });
+    app.get(board.url + '/bundle.css', function(req, res) {
+        var files = [];
+        _.each(_.uniq(_.pluck(board.widgets, 'type')), function(type) {
+            if (fs.existsSync('./widgets/' + type + '/style.css'))
+                files.push('./widgets/' + type + '/style.css');
+        });
+        res.set({
+            'Content-Type': 'text/css'
+        })
+        res.send(uglifyCSS.processFiles(files, {
+            compress: false,
+        }));
     });
     app.get(board.url, function(req, res) {
         res.render(board.path + '/board.html', {
 			media_url: '/media',
             asset_url: board.url + '/assets',
-            bundle_url: board.url + '/bundle.js',
+            bundle_js_url: board.url + '/bundle.js',
+            bundle_css_url: board.url + '/bundle.css',
             board: board
         });
     });

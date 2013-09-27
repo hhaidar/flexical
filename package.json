@@ -10,6 +10,7 @@
     "underscore": "*",
     "socket.io": "*",
     "uglify-js": "*",
+    "uglifycss": "*",
     "async": "*",
     "request": "*"
   },
