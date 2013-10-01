@@ -1,0 +1,55 @@
+.flxl-widget-iteration {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 185px;
+}
+.flxl-widget-iteration ul,
+.flxl-widget-iteration li {
+  padding: 0;
+  margin: 0;
+}
+.flxl-widget-iteration .flxl-text-heading {
+  color: #3498db;
+}
+.flxl-widget-iteration .meta {
+  width: 100%;
+  height: 140px;
+  display: table;
+  table-layout: fixed;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.flxl-widget-iteration .ticket-types {
+  display: table-row;
+}
+.flxl-widget-iteration .type {
+  background-color: #50597b;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  padding: 20px 0;
+  border-top: 10px #ccc solid;
+}
+.flxl-widget-iteration .type-red {
+  border-top-color: #e64c65;
+}
+.flxl-widget-iteration .type-orange {
+  border-top-color: #fcb150;
+}
+.flxl-widget-iteration .type-blue {
+  border-top-color: #4fc4f6;
+}
+.flxl-widget-iteration .type-green {
+  border-top-color: #11a8ab;
+}
+.flxl-widget-iteration .name {
+  font-weight: normal;
+  margin: 0;
+  opacity: 0.3;
+}
+.flxl-widget-iteration .count {
+  font-size: 2.2em;
+  line-height: 100%;
+}

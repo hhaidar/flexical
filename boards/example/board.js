@@ -11,6 +11,9 @@ module.exports = {
                 location: 'Toronto'
             }
         },
+        'iteration': {
+            type: 'iteration'
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,

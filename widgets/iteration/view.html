@@ -1,0 +1,26 @@
+{% macro view id %}
+    <div id="{{ id }}" class="flxl-widget flxl-widget-iteration">
+        <h2 class="flxl-text-heading">Iteration <span class="version">2.24</span></h2>
+        <canvas class="chart" width="360" height="360"></canvas>
+        <div class="meta">
+            <ul class="ticket-types">
+                <li class="type type-red">
+                    <h3 class="name">Dev</h3>
+                    <div class="count">42</div>
+                </li>
+                <li class="type type-orange">
+                    <h3 class="name">Review</h3>
+                    <div class="count">7</div>
+                </li>
+                <li class="type type-blue">
+                    <h3 class="name">QA</h3>
+                    <div class="count">12</div>
+                </li>
+                <li class="type type-green">
+                    <h3 class="name">Closed</h3>
+                    <div class="count">5</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endmacro %}
