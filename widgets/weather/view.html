@@ -1,12 +1,18 @@
 {% macro view id name %}
-    <div id="{{ id }}" class="flxl-widget flxl-widget-color-blue">
+    <div id="{{ id }}" class="flxl-widget-weather flxl-widget flxl-widget-color-blue">
         <h2 class="flxl-text-heading">{{ name }}</h2>
-        <canvas flxl-id="skycon" style="width: 100%; max-width: 400px;"></canvas>
-        <div flxl-id="location"></div>
-        <div>
-            <span flxl-id="temp"></span>&deg;C
+        <div class="meta">
+            <div class="meta-left">
+                <canvas data-id="skycon" width="256" height="256"></canvas>
+            </div>
+            <div class="meta-right">
+                <div class="temperature">
+                    <span data-id="temp"></span><small>&deg;C</small>
+                </div>
+                <div data-id="location"></div> 
+            </div>
         </div>
-        <div flxl-id="title"></div>
-        <div flxl-id="desc"></div>
+        <div data-id="title"></div>
+        <div data-id="date"></div>
     </div>
 {% endmacro %}

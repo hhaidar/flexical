@@ -10,6 +10,18 @@
     position: relative;
     overflow: auto;
     .flex(1);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    display: box;
+    box-orient: vertical;
+    box-pack: center;
+    box-align: center;
     .box-shadow(0 0 20px #333);
     .transition(background .4s ease-out);
 }
@@ -46,11 +58,10 @@
 //
 
 [class*='flxl-text'] {
-    text-align: center;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: .1em;
     small {
-        font-size: 50%;
+        font-size: .5em;
     }
     &:last-child {
         margin-bottom: 0;
@@ -58,22 +69,33 @@
 }
 
 .flxl-text-heading {
-    font-size: 130%;
+    font-size: 1.5em;
     text-transform: uppercase;
 }
 
-.flxl-text-small {
-    font-size: 90%;
-}
-
-.flxl-text-medmium {
-    font-size: 100%;
-}
-
 .flxl-text-epic {
-    font-size: 250%;
+    font-size: 4em;
 }
 
+.flxl-text-giga {
+    font-size: 2.5em;
+}
+
+.flxl-text-mega {
+    font-size: 2em;
+}
+
+.flxl-text-kilo {
+    font-size: 1em;
+}
+
+.flxl-text-micro {
+    font-size: .75em;
+}
+
+.flxl-text-nano {
+    font-size: .5em;
+}
 //
 // Status Lists
 //
