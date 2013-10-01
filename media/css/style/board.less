@@ -1,0 +1,54 @@
+//
+// Board Base
+//
+
+.flxl-board {
+    height: 100%;
+    padding: 4px;
+    .flex-display;
+    .animated;
+    .fadeInUp;
+    &.hide {
+        display: none;
+    }
+}
+
+.flxl-row {
+    .flex-display;
+    .flex-direction(row);
+    .flex(1);
+}
+
+.flxl-column {
+    .flex-display;
+    .flex-direction(column);
+    .flex(1);
+}
+
+//
+// Board Flex Sizing
+//
+.flxl-widget[flxl-flex="0"],
+[flxl-flex="0"] {
+    .flex(0 auto);
+}
+
+.flxl-widget[flxl-flex="1"],
+[flxl-flex="1"] {
+    .flex(2);
+}
+
+.flxl-widget[flxl-flex="2"],
+[flxl-flex="2"] {
+    .flex(2);
+}
+
+.flxl-widget[flxl-flex="3"],
+[flxl-flex="3"] {
+    .flex(3);
+}
+
+.flxl-widget[flxl-flex="4"],
+[flxl-flex="4"] {
+    .flex(4);
+}

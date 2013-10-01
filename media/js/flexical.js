@@ -17,7 +17,7 @@
         },
         render: function() {
             this.$('.flxl-connection-status').addClass('hide');
-            this.$('.flxl-widgets').addClass('hide');
+            this.$('.flxl-board').addClass('hide');
         },
         listen: function() {
             var that = this;
@@ -48,7 +48,7 @@
                 setTimeout(function() {
                     this.$('.flxl-loading').addClass('hide');
                     setTimeout(function() {
-                        this.$('.flxl-widgets').removeClass('hide');
+                        this.$('.flxl-board').removeClass('hide');
                     }, 200);
                 }, 1 * 1000);
             }

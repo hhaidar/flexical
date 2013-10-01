@@ -1,29 +1,6 @@
 //
-// Widgets Base
+// Widget
 //
-
-.flxl-widgets {
-    height: 100%;
-    padding: 4px;
-    .flex-display;
-    .animated;
-    .fadeInUp;
-    &.hide {
-        display: none;
-    }
-}
-
-.flxl-row {
-    .flex-display;
-    .flex-direction(row);
-    .flex(1);
-}
-
-.flxl-column {
-    .flex-display;
-    .flex-direction(column);
-    .flex(1);
-}
 
 .flxl-widget {
     background-color: #fff;
@@ -38,54 +15,31 @@
 }
 
 //
-// Widget Sizing
-//
-
-[flxl-flex="0"] {
-    .flex(0 auto);
-}
-
-[flxl-flex="1"] {
-    .flex(2);
-}
-
-[flxl-flex="2"] {
-    .flex(2);
-}
-
-[flxl-flex="3"] {
-    .flex(3);
-}
-
-[flxl-flex="4"] {
-    .flex(4);
-}
-
-//
 // Widget Colors
 //
 
-[flxl-color] {
+.flxl-widget-color-red {
+    background-color: #e64c65;
     color: #fff;
 }
 
-[flxl-color="red"] {
-    background-color: #e64c65;
-}
-
-[flxl-color="green"] {
+.flxl-widget-color-green {
     background-color: #1fbba6;
+    color: #fff;
 }
 
-[flxl-color="blue"] {
+.flxl-widget-color-blue {
     background-color: #0fbbf1;
+    color: #fff;
 }
 
-[flxl-color="none"] {
+.flxl-widget-color-none {
     background-color: transparent;
+    color: #fff;
     padding: 0;
     .box-shadow(none);
 }
+
 
 //
 // Text

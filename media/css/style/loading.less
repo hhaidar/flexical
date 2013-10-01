@@ -1,0 +1,83 @@
+//
+// Loading Screen
+//
+
+.flxl-loading {
+    background: #2c3e50;
+    .size(100%);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .animated;
+    .fadeInUp;
+    &.hide {
+        .slideOutUp;
+    }
+}
+
+.flxl-loading-logo {
+    background-image: url('../img/loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center 20%;
+    .size(100%);
+    position: absolute;
+    top: 0;
+}
+
+.flxl-loading-status {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    position: absolute;
+    bottom: 10%;
+}
+
+.flxl-loading-indicator {
+    .size(60px;);
+    left: 50%;
+    margin-left: -30px;
+    position: absolute;
+    bottom: 22%;
+    &:before,
+    &:after {
+        .size(60px);
+        border: 4px #fff dotted;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .box-sizing(border-box);
+        .border-radius(100%);
+    }
+    &:before {
+        .animation(rotate 10s infinite linear);
+    }
+    &:after {
+        .size(40px);
+        top: 10px;
+        left: 10px;
+        .animation(rotate 10s infinite linear reverse, blink 5s infinite linear alternate); 
+    }
+}
+
+.flxl-connection-status {
+    background: rgba(0, 0, 0, 0.5);
+    .size(250px);
+    line-height: 250px;
+    text-align: center;
+    color: #fff;
+    font-size: 8em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    .border-radius(100%);
+    .animation(blink 1s infinite linear alternate);
+    &.hide {
+        display: none;
+    }
+}
