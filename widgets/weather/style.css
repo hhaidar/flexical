@@ -6,7 +6,7 @@
 .flxl-widget-weather .meta-right {
   width: 50%;
   display: table-cell;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 .flxl-widget-weather .temperature {
   font-size: 2.6em;
