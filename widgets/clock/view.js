@@ -4,7 +4,7 @@
             var that = this;
             var makeTime = function() {
                 var time = moment().format('hh:mm')
-                  + '<small>' + moment().format('A') + '<small>';             
+                  + ' <small>' + moment().format('A') + '<small>';             
                 that.$el.find('time').html(time);
             }
             makeTime();
