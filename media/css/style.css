@@ -5316,9 +5316,10 @@ time {
 .flxl-text-heading {
   font-size: 1.5em;
   text-transform: uppercase;
+  margin-bottom: 1em;
 }
 .flxl-text-epic {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 .flxl-text-giga {
   font-size: 2.5em;

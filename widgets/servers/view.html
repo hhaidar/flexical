@@ -1,10 +1,14 @@
 {% macro view id name %}
-    <div id="{{ id }}" class="flxl-widget">
+    <div id="{{ id }}" class="flxl-widget flxl-widget-servers">
         <h2 class="flxl-text-heading">{{ name }}</h2>
-        <div class="flxl-donut">
-            <div flxl-id="percent"></div>
-            <div flxl-id="count"></div>
+        <div class="donut">
+            <canvas class="chart" width="256" height="256"></canvas>
+            <div class="text">
+                <div data-id="percent"></div>
+                <div data-id="count"></div>
+            </div>
         </div>
-        <h3 class="flxl-text-epic" flxl-id="state"></p>
+        <h3 class="flxl-text-epic" data-id="state"></h3>
+        <div data-id="down"></div>
     </div>
 {% endmacro %}
