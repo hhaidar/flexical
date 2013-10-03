@@ -22,7 +22,7 @@
 .flxl-widget-weather [data-id="title"] {
   font-size: 1.5em;
   margin-bottom: 15px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .flxl-widget-weather [data-id="skycon"] {
   width: 100%;

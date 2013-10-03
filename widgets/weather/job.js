@@ -48,7 +48,7 @@ var weatherJob = function(job) {
             title: data.weather[0].main,
             description: data.weather[0].description,
             icon: iconMap[data.weather[0].icon] || iconMap['CLEAR_DAY'],
-            temp: Math.round((data.main.temp - 273.15) * 10) / 10
+            temp: Math.round((data.main.temp - 273.15))
         });
     });
 };
