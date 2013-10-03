@@ -1,7 +1,7 @@
 var request = require('request');
 
 module.exports = {
-    interval: 5,
+    interval: 10 * 60,
     fetch: function(job) {
         var options = {
             url: job.options.url,
