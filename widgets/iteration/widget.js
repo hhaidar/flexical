@@ -1,3 +1,4 @@
 module.exports = {
-    id: 'iteration'
+    id: 'iteration',
+    job: require('./job')
 }

@@ -12,7 +12,8 @@ module.exports = {
             }
         },
         'iteration': {
-            type: 'iteration'
+            type: 'iteration',
+            options: require('./settings.js')['iteration']
         },
         'internal-servers': {
             type: 'servers',

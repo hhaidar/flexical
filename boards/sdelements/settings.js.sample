@@ -6,6 +6,11 @@ var sdeTest = function(res) {
 }
 
 module.exports = {
+    'iteration': {
+        url: 'https://melbourne.sdelements.com/status_board_data.json',
+        username: '',
+        password: '',
+    },
     'production-servers': {
         'onsite': {
             url: 'https://onsite.sdelements.com',

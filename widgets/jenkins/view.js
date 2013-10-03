@@ -1,7 +1,6 @@
 (function() {
     Flexical.views.jenkins = Flexical.Widget.extend({
         init: function() {
-            console.log(this.$('.template').html())
             this.template = Handlebars.compile(this.$('.template').html());
         },
         update: function(tests) {

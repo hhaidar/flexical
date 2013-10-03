@@ -3,29 +3,29 @@
         init: function() {
             var context = this.$('.chart').get(0).getContext('2d');
             this.chart =  new Chart(context);
-            this.chart.Doughnut([
-                {
-                    value: 42,
-                    color:"#e64c65"
-                },
-                {
-                    value : 7,
-                    color : "#fcb150"
-                },
-                {
-                    value : 12,
-                    color : "#4fc4f6"
-                },
-                {
-                    value : 5,
-                    color : "#11a8ab"
-                }
-            ], {
+            this.colorMap = {
+                dev: '#e64c65',
+                qa: '#fcb150',
+                review: '#4fc4f6',
+                closed: '#11a8ab'
+            }
+            this.doneLoading();
+        },
+        update: function(iteration) {
+            var chartData = [];
+            this.$('[data-id=version]').text(iteration.name);
+            _.each(iteration.statuses, function(status) {
+                this.$('[data-id=' + status.name + ']').find('.count').text(status.total);
+                chartData.push({
+                    value: status.total,
+                    color: this.colorMap[status.name] || '#ccc'
+                })
+            }, this);
+            this.chart.Doughnut(chartData, {
                 animation: false,
                 segmentShowStroke: false,
                 percentageInnerCutout: 60,
             });
-            this.doneLoading();
         }
     });
 })();
