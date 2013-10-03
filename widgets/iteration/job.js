@@ -14,7 +14,6 @@ module.exports = {
         }
         request.get(options, function (err, res, data) {
             job.continue(data.progress.iterations[0]);
-            console.log([data.progress.iterations]);
         });
     }
 }
