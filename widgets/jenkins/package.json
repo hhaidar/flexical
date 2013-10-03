@@ -1,0 +1,9 @@
+{
+  "name": "flexical-jenkins",
+  "version": "0.0.1",
+  "description": "Tells us about our tests.",
+  "author": "SD Elements",
+  "dependencies": {
+    "request": "*"
+  }
+}

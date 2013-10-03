@@ -16,16 +16,22 @@ module.exports = {
         },
         'internal-servers': {
             type: 'servers',
-            interval: 10,
+            interval: 60,
             options: {
                servers: require('./settings.js')['internal-servers']
             }
         },
         'production-servers': {
             type: 'servers',
-            interval: 10,
+            interval: 60,
             options: {
                servers: require('./settings.js')['production-servers']
+            }
+        },
+        'jenkins': {
+            type: 'jenkins',
+            options: {
+                url: 'http://192.168.1.16:8080/api/json'
             }
         }
     }

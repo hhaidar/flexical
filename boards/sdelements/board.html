@@ -8,6 +8,7 @@
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 {% import '../widgets/iteration/view.html' as iteration %}
+{% import '../widgets/jenkins/view.html' as jenkins %}
 
 {% block board %}
     <div class="flxl-board">
@@ -23,6 +24,7 @@
             </div>
             <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
                 {{ clock.view('clock') }}
+                {{ jenkins.view('jenkins') }}
                 {{ weather.view('weather') }}
             </div>
         </div>
