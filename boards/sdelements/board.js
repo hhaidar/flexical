@@ -18,14 +18,14 @@ module.exports = {
             type: 'servers',
             interval: 10,
             options: {
-               servers: require('./settings.js').INTERNAL
+               servers: require('./settings.js')['internal-servers']
             }
         },
         'production-servers': {
             type: 'servers',
             interval: 10,
             options: {
-               servers: require('./settings.js').PRODUCTION
+               servers: require('./settings.js')['production-servers']
             }
         }
     }

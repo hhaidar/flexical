@@ -1,0 +1,96 @@
+// Test SDE server
+var sdeTest = function(res) {
+    // check nagios tag
+    if (res.body.match(/7bd1011a7479b6a8543260e4d2b2110e40fd638b/ig)) return true;
+    return false;
+}
+
+module.exports = {
+    'production-servers': {
+        'onsite': {
+            url: 'https://onsite.sdelements.com',
+            test: function (res) {
+                return res.statusCode == 401
+            }
+        },
+        'M1': {
+            url: 'https://m1.sdelements.com',
+            test: sdeTest
+        },
+        'C1': {
+            url: 'https://c1.sdelements.com',
+            test: sdeTest
+        },
+        'C2': {
+            url: 'https://c2.sdelements.com',
+            test: sdeTest
+        },
+        'C3': {
+            url: 'https://c3.sdelements.com',
+            test: sdeTest
+        },
+        'C4': {
+            url: 'https://c4.sdelements.com',
+            test: sdeTest
+        },
+        'C6': {
+            url: 'https://c6.sdelements.com',
+            test: sdeTest
+        },
+        'C9': {
+            url: 'https://c9.sdelements.com',
+            test: sdeTest
+        },
+        'C10': {
+            url: 'https://c10.sdelements.com',
+            test: sdeTest
+        },
+        'C11': {
+            url: 'https://c11.sdelements.com',
+            test: sdeTest
+        },
+        'C13': {
+            url: 'https://c13.sdelements.com',
+            test: sdeTest
+        },
+        'C14': {
+            url: 'https://c14.sdelements.com',
+            test: sdeTest
+        },
+        'Security Compass': {
+            url: 'http://securitycompass.com',
+            test: function(res) {
+                if(res.body.match(/All Rights Reserved/ig)) return true;
+                return false;
+            }
+        },
+        'SD Elements': {
+            url: 'http://sdelements.com',
+            test: function(res) {
+                if(res.body.match(/All Rights Reserved/ig)) return true;
+                return false;
+            }
+        }
+    },
+    'internal-servers': {
+        'melbourne': {
+            // Use the local trac tunnel to check melbourne. It has no public facing servers.
+            url: 'http://localhost:9000',
+            test: function(res) {
+                if (res.statusCode == 401) return true;
+                return false;
+            }
+        },
+        'newcastle': {
+            url: 'https://newcastle.sdelements.com',
+            test: sdeTest
+        },
+        'tokyo': {
+            url: 'https://tokyo.sdelements.com',
+            test: sdeTest
+        },
+        'LCB': {
+            url: 'https://cairo.sdelements.com:9000'
+        }
+    }
+}
