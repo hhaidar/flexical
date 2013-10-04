@@ -57,7 +57,7 @@
     //
     // Widget
     //
-    Flexical.Widget = Backbone.View.extend({
+    Flexical.Widget = Backbone.Epoxy.View.extend({
         initialize: function() {
             this.setElement('#' + this.id);
             this.job = this.options.id;
