@@ -13,6 +13,7 @@ module.exports = {
         },
         'transit': {
             type: 'transit',
+            interval: 10,
             options: {
                 stops: [
                     6853,

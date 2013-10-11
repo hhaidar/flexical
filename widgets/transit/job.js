@@ -34,6 +34,5 @@ var transitJob = function(job) {
 };
 
 module.exports = {
-    interval: 60,
     fetch: transitJob
 }
