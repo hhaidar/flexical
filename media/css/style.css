@@ -5436,3 +5436,17 @@ time {
   width: 50%;
   float: left;
 }
+.flxl-slider,
+.owl-wrapper,
+.owl-wrapper-outer,
+.owl-item {
+  width: 100%;
+  height: 100% !important;
+}
+.flxl-slider {
+  -webkit-transition: -webkit--webkit-transform 0.1s linear;
+  -moz-transition: -webkit--moz-transform 0.1s linear;
+  -o-transition: -webkit--o-transform 0.1s linear;
+  -ms-transition: -webkit--ms-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+}

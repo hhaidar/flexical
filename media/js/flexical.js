@@ -6,6 +6,12 @@
     //
     Flexical.Board = Backbone.View.extend({
         el: 'body',
+        keys: {
+            'left': 'prev',
+            'right': 'next',
+            'up': 'up',
+            'down': 'down'
+        },
         initialize: function() {
             this.widgets = {};
             _.each(this.options.widgets, function(widget) {
@@ -18,6 +24,14 @@
         render: function() {
             this.$('.flxl-connection-status').addClass('hide');
             this.$('.flxl-board').addClass('hide');
+            this.slider = this.$('.flxl-slider').owlCarousel({
+                singleItem: true,
+                navigation: false,
+                pagination: false,
+                responsive: true,
+                autoHeight: true,
+                lazyEffect: false
+            }).data('owlCarousel');
         },
         listen: function() {
             var that = this;
@@ -52,6 +66,18 @@
                     }, 200);
                 }, 1 * 1000);
             }
+        },
+        up: function() {
+            this.$('.flxl-slider').css('-webkit-transform', 'scale(0.8)')
+        },
+        down: function() {
+            this.$('.flxl-slider').css('-webkit-transform', 'scale(1)')
+        },
+        prev: function() {
+            this.slider.prev();
+        },
+        next: function() {
+            this.slider.next();
         }
     });
     //
