@@ -7,8 +7,8 @@
     Flexical.Board = Backbone.View.extend({
         el: 'body',
         keys: {
-            'left': 'prev',
-            'right': 'next',
+            'left': 'next',
+            'right': 'prev',
             'up': 'up',
             'down': 'down'
         },
@@ -30,7 +30,8 @@
                 pagination: false,
                 responsive: true,
                 autoHeight: true,
-                lazyEffect: false
+                lazyEffect: false,
+                rewindNav: false
             }).data('owlCarousel');
         },
         listen: function() {
@@ -67,10 +68,10 @@
                 }, 1 * 1000);
             }
         },
-        up: function() {
+        down: function() {
             this.$('.flxl-slider').css('-webkit-transform', 'scale(0.8)')
         },
-        down: function() {
+        up: function() {
             this.$('.flxl-slider').css('-webkit-transform', 'scale(1)')
         },
         prev: function() {
