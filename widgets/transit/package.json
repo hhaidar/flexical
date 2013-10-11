@@ -1,0 +1,16 @@
+{
+  "name": "transit",
+  "version": "0.0.0",
+  "description": "",
+  "main": "job.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "request": "~2.27.0",
+    "xml2js": "~0.2.8",
+    "async": "~0.2.9"
+  }
+}

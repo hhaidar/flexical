@@ -1,0 +1,13 @@
+{% macro view id name %}
+    <div id="{{ id }}" class="flxl-widget flxl-widget-jenkins">
+        <ul class="flxl-status-list"></ul>
+        {% raw %}
+            <script class="template" type="text/x-handlebars-template">
+                <li class="flxl-status-item" flxl-status="{{ status }}" flxl-id="{{ name }}">
+                    <h3 class="flxl-status-item-name">{{ name }}</h3>
+                    <div class="flxl-status-item-state"></div>
+                </li>
+            </script>
+        {% endraw %}
+    </div>
+{% endmacro %}

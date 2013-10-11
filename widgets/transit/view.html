@@ -1,10 +1,19 @@
 {% macro view id name %}
-    <div id="{{ id }}" class="flxl-widget" flxl-color="blue">
-        <h2 class="flxl-text-heading">{{ name }}</h2>
-        <div flxl-id="transit_stop_title"></div>
-        <div flxl-id="transit_title"></div>
-         <div>
-            <span flxl-id="transit_minutes"></span> mins.
-        </div>
+    
+    <div id="{{ id }}" class="flxl-widget flxl-widget-color-green flxl-widget-transit">
+        {% raw %}
+            <script class="template" type="text/x-handlebars-template">
+                <li class="flxl-transit-stop">
+                    <h3 class="flxl-transit-stop-name">{{ stop_name }}</h3>
+                    <span class="flxl-transit-stop-direction">{{ stop_direction }}</h3>
+                    <span class="flxl-transit-stop-time">{{ stop_time }}</span> 
+                </li>
+            </script>
+        {% endraw %}
+        
+        <img src="/media/img/transit.png" />
+        <h1>TRANSIT SCHEDULE</h1>
+        <ul class="flxl-transit-stop-list">
+        </ul>
     </div>
 {% endmacro %}

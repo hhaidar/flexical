@@ -5225,10 +5225,10 @@ time {
 }
 .flxl-widget[flxl-flex="1"],
 [flxl-flex="1"] {
-  -webkit-flex: 2;
-  -moz-flex: 2;
-  -ms-flex: 2;
-  flex: 2;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 .flxl-widget[flxl-flex="2"],
 [flxl-flex="2"] {
@@ -5316,10 +5316,10 @@ time {
 .flxl-text-heading {
   font-size: 1.5em;
   text-transform: uppercase;
-  margin-bottom: 1em;
+  margin-bottom: .8em;
 }
 .flxl-text-epic {
-  font-size: 3.5em;
+  font-size: 3.2em;
 }
 .flxl-text-giga {
   font-size: 2.5em;
@@ -5387,7 +5387,7 @@ time {
 }
 .flxl-status-item-name {
   margin: 0;
-  font-size: 150%;
+  font-size: 1.3em;
 }
 .flxl-status-item-state {
   background-color: #aaa;
