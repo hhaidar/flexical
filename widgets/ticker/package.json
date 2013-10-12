@@ -1,0 +1,12 @@
+{
+  "name": "flexical-weather",
+  "version": "0.0.1",
+  "description": "Tells you if you should go outside.",
+  "dependencies": {
+    "request": "*",
+	"jquery": "*"
+  },
+  "repository": "",
+  "author": "kc",
+  "license": "BSD"
+}

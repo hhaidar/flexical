@@ -11,6 +11,10 @@ module.exports = {
                 location: 'Toronto'
             }
         },
+        'ticker': {
+            type: 'ticker',
+			interval: 10,
+        },
         'internal-servers': {
             type: 'servers',
             interval: 10,

@@ -4,23 +4,29 @@
     {{ board.name }}
 {% endblock %}
 
+{% import '../widgets/ticker/view.html' as ticker %}
 {% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 
 {% block board %}
     <div class="flxl-board">
-        <div class="flxl-row">
-            <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('production-servers', 'Production Servers') }}
-            </div>
-            <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('internal-servers', 'Internal Servers') }}
-            </div>
-            <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
-                {{ clock.view('clock') }}
-                {{ weather.view('weather') }}
-            </div>
+		<div class="flxl-column" flxl-flex="">
+			<div class="flxl-row" flxl-flex="0">
+				{{ ticker.view('ticker') }}
+			</div>
+			<div class="flxl-row" flxl-flex="1">
+				<div class="flxl-column" flxl-flex="1">
+					{{ servers.view('production-servers', 'Production Servers') }}
+				</div>
+				<div class="flxl-column" flxl-flex="1">
+					{{ servers.view('internal-servers', 'Internal Servers') }}
+				</div>
+				<div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
+					{{ clock.view('clock') }}
+					{{ weather.view('weather') }}
+				</div>
+			</div>
         </div>
     </div>
 {% endblock %}
