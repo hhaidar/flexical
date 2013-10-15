@@ -78,7 +78,7 @@
                         }
 
                         // For each time prediction
-                        _(direction_predictions.slice(0, 3)).each(function (direction_prediction) {
+                        _(direction_predictions).each(function (direction_prediction) {
 
                             var stop_time = parseInt(direction_prediction.minutes, 10);
                             var stop_time_message = '';
@@ -121,20 +121,9 @@
                 });
 
                 // Render the sorted predictions
-                _(sorted_predictions).each(function(sorted_prediction) {
+                _(sorted_predictions.slice(0, 3)).each(function(sorted_prediction) {
                     $stop_times.append(time_template(sorted_prediction));
                 });
-
-                // Sort the predictions across all routes
-                var sorted_predictions = _(available_predictions).sortBy(function(available_prediction) {
-                    return available_prediction.stop_time;
-                });
-
-                // Render the sorted predictions
-                _(sorted_predictions).each(function(sorted_prediction) {
-                    $stop_times.append(time_template(sorted_prediction));
-                });
-
             });
         }
     });
