@@ -7,11 +7,12 @@ var transitJob = function(job) {
     var requests = [];
     
     _(job.options.stops).each(function (stop_id) {
+
         requests.push(function (success_callback) {
+
             var request_path = 'http://webservices.nextbus.com/service/publicJSONFeed';
             var request_params = '?command=predictions&a=ttc&t=0&stopId=' + stop_id;
             var request_url = request_path + request_params;
-            console.log('requesting ' + request_url);
 
             request.get({
                 url: request_url,

@@ -1,5 +1,62 @@
 .flxl-widget-transit {
-    h1 {
-        font-size: 64px;
+
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .flxl-transit-header {
+        width: 70%;
+
+        .flxl-transit-logo {
+            float: left;
+            height: 70px;
+        }
+
+        .flxl-transit-title {
+            font-size: 55px;
+        }
+    }
+
+    .flxl-transit-stop-list {
+        width: 668px;
+
+        .flxl-transit-stop {
+            background: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            -webkit-border-radius: 10px;
+
+            .flxl-transit-stop-name {
+                color: #1fbba6;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .flxl-transit-stop-time {
+                padding: 5px;
+                padding-left: 20px;
+                margin-bottom: 10px;
+                -webkit-border-radius: 10px;
+
+                .flxl-transit-stop-remaining {
+                    float: right;
+                }
+
+                &.flxl-transit-stop-time-colour-green {
+                    background-color: #30c930;
+                }
+
+                &.flxl-transit-stop-time-colour-yellow {
+                    background-color: #c9db25;
+                }
+
+                &.flxl-transit-stop-time-colour-red {
+                    background-color: #ed2427;
+                }
+
+            }
+        }
     }
 }

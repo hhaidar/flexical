@@ -1,3 +1,47 @@
-.flxl-widget-transit h1 {
-  font-size: 64px;
+.flxl-widget-transit ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.flxl-widget-transit .flxl-transit-header {
+  width: 70%;
+}
+.flxl-widget-transit .flxl-transit-header .flxl-transit-logo {
+  float: left;
+  height: 70px;
+}
+.flxl-widget-transit .flxl-transit-header .flxl-transit-title {
+  font-size: 55px;
+}
+.flxl-widget-transit .flxl-transit-stop-list {
+  width: 668px;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-name {
+  color: #1fbba6;
+  margin: 0px;
+  padding: 0px;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time {
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 10px;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time .flxl-transit-stop-remaining {
+  float: right;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-green {
+  background-color: #30c930;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-yellow {
+  background-color: #c9db25;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-red {
+  background-color: #ed2427;
 }

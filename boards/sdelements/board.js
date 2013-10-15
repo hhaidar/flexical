@@ -13,14 +13,14 @@ module.exports = {
         },
         'transit': {
             type: 'transit',
-            interval: 10,
+            interval: 30,
             options: {
                 stops: [
                     6853,
                     3088,
                     4184,
-                    4185
-                    //7353
+                    4185,
+                    7355
                 ]
             }
         },
