@@ -13,10 +13,15 @@ module.exports = {
         },
         'transit': {
             type: 'transit',
+            interval: 30,
             options: {
-                agency: 'ttc',
-                route: 501,
-                stop: 3080,
+                stops: [
+                    6853,
+                    3088,
+                    4184,
+                    4185,
+                    7355
+                ]
             }
         },
         'internal-servers': {
