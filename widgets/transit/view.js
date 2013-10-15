@@ -55,6 +55,9 @@
                 // Find the stop time list of the element we just rendered
                 $stop_times = $stop_list.find('.flxl-transit-stop[data-stop-id=' + stop_id + ']').find('.flxl-transit-stop-direction-times');
 
+                // Collect all stop predictions for each route
+                var available_predictions = [];
+
                 // For each stop prediction
                 _(stop_predictions).each(function(stop_prediction) {
 
@@ -84,15 +87,25 @@
                             }
 
                             // Render the stop time prediction
-                            $stop_times.append(time_template({
+                            available_predictions.push({
+                                stop_time: stop_time,
                                 stop_route: stop_prediction.routeTitle,
-                                stop_time: stop_time_message,
+                                stop_time_message: stop_time_message,
                                 stop_time_colour: stop_time_colour
-                            }));
+                            });
 
                         });
+
                     }
 
+                });
+                
+                var sorted_predictions = _(available_predictions).sortBy(function(available_prediction) {
+                    return available_prediction.stop_time;
+                });
+
+                _(sorted_predictions).each(function(sorted_prediction) {
+                    $stop_times.append(time_template(sorted_prediction));
                 });
 
             });
