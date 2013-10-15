@@ -1,0 +1,78 @@
+.flxl-widget-transit {
+
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .flxl-transit-header {
+        width: 70%;
+
+        .flxl-transit-logo {
+            float: left;
+            height: 70px;
+        }
+
+        .flxl-transit-title {
+            font-size: 55px;
+        }
+    }
+
+    .flxl-transit-stop-list {
+        width: 668px;
+
+        .flxl-transit-stop {
+            background: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+
+            .flxl-transit-ttc-logo {
+                float: left;
+                height: 50px;
+            }
+
+            .flxl-transit-stop-name {
+                color: #0fbbf1;
+                margin: 0px;
+                padding: 0px;
+                margin-bottom: 10px;
+            }
+
+            .flxl-transit-stop-time {
+                padding: 5px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 10px;
+                border-radius: 10px;
+
+                .flxl-transit-stop-remaining {
+                    float: right;
+                }
+
+
+                &.flxl-transit-stop-time-colour-green {
+                    background-image: -webkit-gradient(linear, left top, left bottom, from(#06F557), to(#029F37));
+                }
+
+                &.flxl-transit-stop-time-colour-yellow {
+                    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFC845), to(#FF8607));
+                }
+
+                &.flxl-transit-stop-time-colour-red {
+                    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF2D07), to(#A61C02));
+                    -webkit-animation: pulsate 1s ease-out;
+                    -webkit-animation-iteration-count: infinite;
+                }
+
+            }
+
+            @-webkit-keyframes pulsate {
+                0% { opacity: 1.0; }
+                50% { opacity: 0.8; }
+                100% { opacity: 1.0; }
+            }
+        }
+    }
+}
