@@ -20,7 +20,11 @@
   background: #fff;
   margin-bottom: 20px;
   padding: 20px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-ttc-logo {
+  float: left;
+  height: 50px;
 }
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-name {
   color: #0fbbf1;
@@ -31,18 +35,32 @@
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time {
   padding: 5px;
   padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time .flxl-transit-stop-remaining {
   float: right;
 }
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-green {
-  background-color: #029F37;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#06f557), to(#029f37));
 }
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-yellow {
-  background-color: #FF8607;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc845), to(#ff8607));
 }
 .flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-red {
-  background-color: #FF2D07;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff2d07), to(#a61c02));
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
