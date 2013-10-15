@@ -7,18 +7,30 @@
 {% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
+{% import '../widgets/transit/view.html' as transit %}
+{% import '../widgets/iteration/view.html' as iteration %}
+{% import '../widgets/jenkins/view.html' as jenkins %}
 
 {% block board %}
     <div class="flxl-board">
         <div class="flxl-row">
-            <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('production-servers', 'Production Servers') }}
+            <div class="flxl-column" flxl-flex="0">
+                {{ servers.view('production-servers', 'Production') }}
+                {{ servers.view('internal-servers', 'Internal') }}
             </div>
             <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('internal-servers', 'Internal Servers') }}
+                <div class="flxl-row">
+                    {{ iteration.view('iteration') }}
+                </div>
+            </div>
+            <div class="flxl-column" flxl-flex="1">
+                <div class="flxl-row">
+                    {{ transit.view('transit') }}
+                </div>
             </div>
             <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
                 {{ clock.view('clock') }}
+                {{ jenkins.view('jenkins') }}
                 {{ weather.view('weather') }}
             </div>
         </div>

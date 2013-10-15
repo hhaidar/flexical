@@ -1,0 +1,27 @@
+{% macro view id name %}
+
+    <div id="{{ id }}" class="flxl-widget flxl-widget-color-blue flxl-widget-transit">
+        {% raw %}
+            <script class="template flxl-transit-stop-template" type="text/x-handlebars-template">
+                <li class="flxl-transit-stop" data-stop-id="{{ stop_id }}">
+                    <img class="flxl-transit-ttc-logo" src="/media/img/ttc.png" />
+                    <h3 class="flxl-transit-stop-name">{{ stop_name }} - {{ stop_direction }}</h3>
+                    <ul class="flxl-transit-stop-direction-times"></ul>
+                </li>
+            </script>
+            <script class="template flxl-transit-time-template" type="text/x-handlebars-template">
+                <li class="flxl-transit-stop-time flxl-transit-stop-time-colour-{{ stop_time_colour }}">
+                    <span class="flxl-transit-stop-route">{{ stop_route }}</span>
+                    <span class="flxl-transit-stop-remaining">{{ stop_time_message }}</span>
+                </li>
+            </script>
+        {% endraw %}
+
+        <div class="flxl-transit-header">
+            <img class="flxl-transit-logo" src="/media/img/transit.png" />
+            <h1 class="flxl-transit-title">TRANSIT SCHEDULE</h1>
+        </div>
+        <ul class="flxl-transit-stop-list">
+        </ul>
+    </div>
+{% endmacro %}
