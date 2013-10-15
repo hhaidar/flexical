@@ -1,6 +1,7 @@
 (function() {
     Flexical.views.transit = Flexical.Widget.extend({
         init: function() {
+            // Tempaltes
             this.stop_template = Handlebars.compile(this.$('.template.flxl-transit-stop-template').html());
             this.time_template = Handlebars.compile(this.$('.template.flxl-transit-time-template').html());
         },
@@ -61,15 +62,28 @@
                 // For each stop prediction
                 _(stop_predictions).each(function(stop_prediction) {
 
+
                     // If there are stop time predictions
-                    if (stop_prediction.direction) {
+                    if (stop_prediction.direction && stop_prediction.direction.prediction) {
+
+                        // Collect all direction predictions
+                        var direction_predictions = [];
+
+                        // My god these people are bad at designing APIs.  If there's
+                        // only one prediction, it becomes an object rather than an array
+                        if (stop_prediction.direction.prediction instanceof Array) {
+                            direction_predictions = stop_prediction.direction.prediction;
+                        } else {
+                            direction_predictions = [stop_prediction.direction.prediction];
+                        }
 
                         // For each time prediction
-                        _(stop_prediction.direction.prediction.slice(0, 3)).each(function (direction_prediction) {
+                        _(direction_predictions.slice(0, 3)).each(function (direction_prediction) {
 
                             var stop_time = parseInt(direction_prediction.minutes, 10);
                             var stop_time_message = '';
 
+                            // Build a pretty message for the remaining time
                             if (stop_time === 0) {
                                 stop_time_message = 'Now Arriving';
                             } else if (stop_time === 1) {
@@ -78,8 +92,10 @@
                                 stop_time_message = stop_time + ' minutes';
                             }
 
+                            // The time remaining is green by default
                             var stop_time_colour = 'green';
 
+                            // If it's approaching, change the colour accordingly
                             if (stop_time <= 1) {
                                 stop_time_colour = 'red';
                             } else if (stop_time <= 5) {
@@ -95,15 +111,16 @@
                             });
 
                         });
-
                     }
 
                 });
-                
+
+                // Sort the predictions across all routes
                 var sorted_predictions = _(available_predictions).sortBy(function(available_prediction) {
                     return available_prediction.stop_time;
                 });
 
+                // Render the sorted predictions
                 _(sorted_predictions).each(function(sorted_prediction) {
                     $stop_times.append(time_template(sorted_prediction));
                 });
