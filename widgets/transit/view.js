@@ -111,15 +111,16 @@
                             });
 
                         });
-
                     }
 
                 });
-                
+
+                // Sort the predictions across all routes
                 var sorted_predictions = _(available_predictions).sortBy(function(available_prediction) {
                     return available_prediction.stop_time;
                 });
 
+                // Render the sorted predictions
                 _(sorted_predictions).each(function(sorted_prediction) {
                     $stop_times.append(time_template(sorted_prediction));
                 });
