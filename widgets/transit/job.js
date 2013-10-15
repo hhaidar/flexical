@@ -29,7 +29,6 @@ var transitJob = function(job) {
     });
 
     async.parallel(requests, function(err, stops_data) {
-        console.log(stops_data);
         job.continue(stops_data); 
     });
 };

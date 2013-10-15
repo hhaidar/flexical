@@ -64,12 +64,12 @@
                         // For each time prediction
                         _(stop_prediction.direction.prediction.slice(0, 3)).each(function (direction_prediction) {
 
-                            var stop_time = direction_prediction.minutes;
+                            var stop_time = parseInt(direction_prediction.minutes, 10);
                             var stop_time_message = '';
 
                             if (stop_time === 0) {
                                 stop_time_message = 'Now Arriving';
-                            } else if (stop_time == 1) {
+                            } else if (stop_time === 1) {
                                 stop_time_message = '1 minute';
                             } else {
                                 stop_time_message = stop_time + ' minutes';
