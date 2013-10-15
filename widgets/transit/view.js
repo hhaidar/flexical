@@ -111,8 +111,17 @@
                             });
 
                         });
+
                     }
 
+                });
+                
+                var sorted_predictions = _(available_predictions).sortBy(function(available_prediction) {
+                    return available_prediction.stop_time;
+                });
+
+                _(sorted_predictions).each(function(sorted_prediction) {
+                    $stop_times.append(time_template(sorted_prediction));
                 });
 
                 // Sort the predictions across all routes
