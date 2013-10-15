@@ -4,7 +4,7 @@
   margin: 0px;
 }
 .flxl-widget-transit .flxl-transit-header {
-  width: 70%;
+  width: 670px;
 }
 .flxl-widget-transit .flxl-transit-header .flxl-transit-logo {
   float: left;
@@ -55,12 +55,12 @@
 }
 @-webkit-keyframes pulsate {
   0% {
-    opacity: 1.0;
+    color: #fff;
   }
   50% {
-    opacity: 0.8;
+    color: #faa;
   }
   100% {
-    opacity: 1.0;
+    color: #fff;
   }
 }
