@@ -55,12 +55,12 @@
 }
 @-webkit-keyframes pulsate {
   0% {
-    opacity: 1.0;
+    color: #fff;
   }
   50% {
-    opacity: 0.8;
+    color: #faa;
   }
   100% {
-    opacity: 1.0;
+    color: #fff;
   }
 }
