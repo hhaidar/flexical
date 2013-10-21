@@ -5,15 +5,9 @@ module.exports = {
         'clock': {
             type: 'clock'
         },
-        'weather': {
-            type: 'weather',
-            options: {
-                location: 'Toronto'
-            }
-        },
         'ticker': {
             type: 'ticker',
-			interval: 10,
+     	    interval: 10,
         },
         'internal-servers': {
             type: 'servers',

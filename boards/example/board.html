@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% import '../widgets/ticker/view.html' as ticker %}
-{% import '../widgets/weather/view.html' as weather %}
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 
@@ -24,7 +23,6 @@
 				</div>
 				<div class="flxl-column" flxl-flex="0" style="-webkit-flex: 450px 0;">
 					{{ clock.view('clock') }}
-					{{ weather.view('weather') }}
 				</div>
 			</div>
         </div>
