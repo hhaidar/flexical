@@ -5440,3 +5440,8 @@ time {
   width: 50%;
   float: left;
 }
+
+#marqueeContentWrapper div {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

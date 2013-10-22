@@ -7,7 +7,6 @@
     $.fn.marquee = function (klass) {
         var newMarquee = [],
             last = this.length;
-
         // works out the left or right hand reset position, based on scroll
         // behavior, current direction and new direction
         function getReset(newDir, marqueeRedux, marqueeState) {
@@ -88,16 +87,16 @@
             newMarquee = newMarqueeList;
             
             if (newMarquee.length) {
-                setTimeout(animateMarquee, 25);
+                setTimeout(animateMarquee, marqueeState.scrolldelay);
             }            
         }
         
         // TODO consider whether using .html() in the wrapping process could lead to loosing predefined events...
         this.each(function (i) {
             var $marquee = $(this),
-                width = $marquee.attr('width') || $marquee.width(),
-                height = $marquee.attr('height') || $marquee.height(),
-                $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + width + 'px; height: ' + height + 'px; overflow: hidden;"><div style="float: left; white-space: nowrap;">' + $marquee.html() + '</div></div>').next(),
+                width = ($marquee.attr('width') || $marquee.width()) + 'px',
+                height = ($marquee.attr('height') || $marquee.height()) + 'px';
+            var $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + width + '; height: ' + height + '; overflow: hidden;"><div style="float: left; white-space: nowrap; width:100%;" id="marqueeContentWrapper">' + $marquee.html() + '</div></div>').next(),
                 marqueeRedux = $marqueeRedux.get(0),
                 hitedge = 0,
                 direction = ($marquee.attr('direction') || 'left').toLowerCase(),
@@ -109,7 +108,8 @@
                     loops : $marquee.attr('loop') || -1,
                     scrollamount : $marquee.attr('scrollamount') || this.scrollAmount || 2,
                     behavior : ($marquee.attr('behavior') || 'scroll').toLowerCase(),
-                    width : /left|right/.test(direction) ? width : height
+                    width : /left|right/.test(direction) ? width : height,
+					scrolldelay: $marquee.attr('scrolldelay') || 25,
                 };
             
             // corrects a bug in Firefox - the default loops for slide is -1
@@ -146,6 +146,20 @@
             
             // on the very last marquee, trigger the animation
             if (i+1 == last) {
+				// update style
+				console.log($marqueeRedux);
+				if ($marquee.attr('style')) {
+					var styles = $marquee.attr('style').split(';');
+					for (var i = 0; i < styles.length; i++) {
+						property = styles[i].split(':');
+						if (property[0] == 'width') {
+							$marqueeRedux.css('width', property[1]);
+						}
+						else if (property[0] == 'height') {
+							$marqueeRedux.css('height', property[1]);
+						}
+					}
+				}
                 animateMarquee();
             }
         });            

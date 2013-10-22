@@ -4,8 +4,9 @@ var updated = false;
 (function($) {
     Flexical.views.ticker = Flexical.Widget.extend({
         init: function() {
-			this.$('#ticker').marquee().on('stop', function(){
+			this.$('#marquee').marquee().on('stop', function(){
 				if (updated) {
+					console.log('updating');
 					updated = false;
 					$(this).children(0).children().remove();
 					marqueeContent = '<div>User Stories</div>';
