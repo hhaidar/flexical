@@ -18,7 +18,6 @@ var tickerJob = function(job) {
     }, function (err, response, data) {
 		var all_headlines = [];
 		$(data).find("item").find("title").each(function(index) {
-			console.log($(this).text());
 			all_headlines.push($(this).text());
 		});
 
