@@ -6,7 +6,6 @@ var updated = false;
         init: function() {
 			this.$('#marquee').marquee().on('stop', function(){
 				if (updated) {
-					console.log('updating');
 					updated = false;
 					$(this).children(0).children().remove();
 					marqueeContent = '<div>User Stories</div>';
