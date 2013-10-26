@@ -2,8 +2,8 @@ var headlines = [];
 var updated = false;
 
 (function($) {
-    Flexical.views.ticker = Flexical.Widget.extend({
-        init: function() {
+	Flexical.views.ticker = Flexical.Widget.extend({
+		init: function() {
 			this.$('#marquee').marquee().on('stop', function(){
 				if (updated) {
 					updated = false;
@@ -18,14 +18,14 @@ var updated = false;
 				}
 			});
 			this.doneLoading();
-        },
+		},
 		update: function(ticker) {
 			var new_headlines = (ticker.headlines);
 			if (headlines != new_headlines) {
 				headlines = new_headlines;
 				updated = true;
 			}
-        }
-    });
+		}
+	});
 })(jQuery);
 

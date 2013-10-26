@@ -5,16 +5,16 @@ var _ = require('underscore'),
 var tickerJob = function(job) {
 	args = {
 		'method': 'get',
-        'url': job.options.url,
+		'url': job.options.url,
 		'headers': job.options.headers
-    };
+	};
 
 	if (args['url'].match(/^https/g)) {
 		args['secureProtocol'] = 'SSLv3_method';
 		args['rejectUnauthorized'] = false;
 	}
 
-    request(args, function (err, response, data) {
+	request(args, function (err, response, data) {
 		var all_headlines = [];
 
 		if (args['url'].match(/\.rss$/g)) {
@@ -31,10 +31,10 @@ var tickerJob = function(job) {
 			console.log('Unable to parse response');
 		}
 
-        job.continue({
-            headlines: all_headlines
-        });
-    });
+		job.continue({
+			headlines: all_headlines
+		});
+	});
 };
 
 module.exports = {
