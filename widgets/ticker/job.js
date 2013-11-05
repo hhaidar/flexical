@@ -37,7 +37,7 @@ var tickerJob = function(job) {
 		} else if (args['url'].match(/pivotaltracker\.com/g) && response.headers['content-type'].match(/application\/json/g)) {
 			// Display PivotalTracker story titles for the current iteration			
 			if (data.length > 0) {
-				for (var i = 0; i < data[0]['stories'].length; i++) {
+				for (var i = 0; i < /*data[0]['stories'].length;*/ 10; i++) {
 					var story = data[0]['stories'][i];
 					all_headlines.push(story['name']);
 				}

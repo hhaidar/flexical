@@ -1,5 +1,5 @@
-{% macro view id %}
-		<div id="{{ id }}" class="flxl-widget flxl-widget-ticker" flxl-flex="1">
-			<marquee style="width:100%; height:50px;" direction="up" scrolldelay="75" scrollamount="1" data-id="marquee">User Stories</marquee>
+{% macro view %}
+		<div id="ticker" class="flxl-widget flxl-widget-ticker" flxl-flex="1">
+			<marquee width=100% height=50px direction="up" scrolldelay="60" scrollamount="1">Loading data...</marquee>
 		</div>
 {% endmacro %}

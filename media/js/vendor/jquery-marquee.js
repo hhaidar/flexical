@@ -2,11 +2,12 @@
 * author Remy Sharp
 * url http://remysharp.com/tag/marquee
 */
-
+ 
 (function ($) {
     $.fn.marquee = function (klass) {
         var newMarquee = [],
             last = this.length;
+ 
         // works out the left or right hand reset position, based on scroll
         // behavior, current direction and new direction
         function getReset(newDir, marqueeRedux, marqueeState) {
@@ -25,7 +26,7 @@
             }
             return r;
         }
-
+ 
         // single "thread" animation
         function animateMarquee() {
             var i = newMarquee.length,
@@ -43,7 +44,7 @@
                 if ($marqueeRedux.data('paused') !== true) {
                     // TODO read scrollamount, dir, behavior, loops and last from data
                     marqueeRedux[marqueeState.axis] += (marqueeState.scrollamount * marqueeState.dir);
-
+ 
                     // only true if it's hit the end
                     hitedge = marqueeState.dir == -1 ? marqueeRedux[marqueeState.axis] <= getReset(marqueeState.dir * -1, marqueeRedux, marqueeState) : marqueeRedux[marqueeState.axis] >= getReset(marqueeState.dir * -1, marqueeRedux, marqueeState);
                     
@@ -52,9 +53,9 @@
                             marqueeState.dir *= -1; // flip
                         }
                         marqueeState.last = -1;
-
+ 
                         $marqueeRedux.trigger('stop');
-
+ 
                         marqueeState.loops--;
                         if (marqueeState.loops === 0) {
                             if (marqueeState.behavior != 'slide') {
@@ -63,7 +64,7 @@
                                 // corrects the position
                                 marqueeRedux[marqueeState.axis] = getReset(marqueeState.dir * -1, marqueeRedux, marqueeState);
                             }
-
+ 
                             $marqueeRedux.trigger('end');
                         } else {
                             // keep this marquee going
@@ -75,7 +76,7 @@
                         newMarqueeList.push(marqueeRedux);
                     }
                     marqueeState.last = marqueeRedux[marqueeState.axis];
-
+ 
                     // store updated state only if we ran an animation
                     $marqueeRedux.data('marqueeState', marqueeState);
                 } else {
@@ -83,7 +84,7 @@
                     newMarqueeList.push(marqueeRedux);                    
                 }
             }
-
+ 
             newMarquee = newMarqueeList;
             
             if (newMarquee.length) {
@@ -94,9 +95,11 @@
         // TODO consider whether using .html() in the wrapping process could lead to loosing predefined events...
         this.each(function (i) {
             var $marquee = $(this),
-                width = ($marquee.attr('width') || $marquee.width()) + 'px',
-                height = ($marquee.attr('height') || $marquee.height()) + 'px';
-            var $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + width + '; height: ' + height + '; overflow: hidden;"><div style="float: left; white-space: nowrap; width:100%;" ="marqueeContentWrapper">' + $marquee.html() + '</div></div>').next(),
+                width = $marquee.attr('width') || $marquee.width(),
+                height = $marquee.attr('height') || $marquee.height(),
+                widthWithUnits = (typeof(width) == 'string' ? width : width + 'px'),
+                heightWithUnits = (typeof(height) == 'string' ? height : height + 'px'),
+                $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + widthWithUnits + '; height: ' + heightWithUnits + '; overflow: hidden;"><div style="width:100%;float: left; white-space: nowrap;">' + $marquee.html() + '</div></div>').next(),
                 marqueeRedux = $marqueeRedux.get(0),
                 hitedge = 0,
                 direction = ($marquee.attr('direction') || 'left').toLowerCase(),
@@ -106,24 +109,24 @@
                     widthAxis : /left|right/.test(direction) ? 'scrollWidth' : 'scrollHeight',
                     last : -1,
                     loops : $marquee.attr('loop') || -1,
+                    scrolldelay : $marquee.attr('scrolldelay') || this.scrollDelay || 25,
                     scrollamount : $marquee.attr('scrollamount') || this.scrollAmount || 2,
                     behavior : ($marquee.attr('behavior') || 'scroll').toLowerCase(),
-                    width : /left|right/.test(direction) ? width : height,
-					scrolldelay: $marquee.attr('scrolldelay') || 25,
+                    width : /left|right/.test(direction) ? width : height
                 };
             
             // corrects a bug in Firefox - the default loops for slide is -1
             if ($marquee.attr('loop') == -1 && marqueeState.behavior == 'slide') {
                 marqueeState.loops = 1;
             }
-
+ 
             $marquee.remove();
             
             // add padding
             if (/left|right/.test(direction)) {
-                $marqueeRedux.find('> div').css('padding', '0 ' + width + 'px');
+                $marqueeRedux.find('> div').css('padding', '0 ' + widthWithUnits);
             } else {
-                $marqueeRedux.find('> div').css('padding', height + 'px 0');
+                $marqueeRedux.find('> div').css('padding', heightWithUnits + ' 0');
             }
             
             // events
@@ -138,32 +141,18 @@
             }).data('marqueeState', marqueeState); // finally: store the state
             
             // todo - rerender event allowing us to do an ajax hit and redraw the marquee
-
+ 
             newMarquee.push(marqueeRedux);
-
+ 
             marqueeRedux[marqueeState.axis] = getReset(marqueeState.dir, marqueeRedux, marqueeState);
             $marqueeRedux.trigger('start');
             
             // on the very last marquee, trigger the animation
             if (i+1 == last) {
-				// update style
-				console.log($marqueeRedux);
-				if ($marquee.attr('style')) {
-					var styles = $marquee.attr('style').split(';');
-					for (var i = 0; i < styles.length; i++) {
-						property = styles[i].split(':');
-						if (property[0] == 'width') {
-							$marqueeRedux.css('width', property[1]);
-						}
-						else if (property[0] == 'height') {
-							$marqueeRedux.css('height', property[1]);
-						}
-					}
-				}
                 animateMarquee();
             }
         });            
-
+ 
         return $(newMarquee);
     };
 }(jQuery));
