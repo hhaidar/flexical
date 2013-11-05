@@ -11,6 +11,15 @@ module.exports = {
                 location: 'Toronto'
             }
         },
+        'ticker': {
+            type: 'ticker',
+            interval: 10,
+            options: {
+                //url: "https://www.pivotaltracker.com/services/v5/projects/940864/iterations?scope=current",
+                url: 'https://melbourne.sdelements.com/userstories.rss',
+                auth: require('./settings.js').TICKER_AUTH
+            }
+        },
         'transit': {
             type: 'transit',
             interval: 30,

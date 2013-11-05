@@ -8,21 +8,29 @@
 {% import '../widgets/clock/view.html' as clock %}
 {% import '../widgets/servers/view.html' as servers %}
 {% import '../widgets/transit/view.html' as transit %}
+{% import '../widgets/ticker/view.html' as ticker %}
 
 {% block board %}
     <div class="flxl-board">
-        <div class="flxl-row">
-            <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('production-servers', 'Production Servers') }}
-            </div>
-            <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('internal-servers', 'Internal Servers') }}
-            </div>
-            <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 750px 0;">
-                {{ clock.view('clock') }}
-                {{ weather.view('weather') }}
-                {{ transit.view('transit') }}
-            </div>
-        </div>
+		<div class="flxl-column">
+			<div class="flxl-row" flxl-flex="1">
+				<div class="flxl-column" flxl-flex="1">
+					{{ servers.view('production-servers', 'Production Servers') }}
+				</div>
+				<div class="flxl-column" flxl-flex="1">
+					{{ servers.view('internal-servers', 'Internal Servers') }}
+				</div>
+				<div class="flxl-column" flxl-flex="0" style="-webkit-flex: 750px 0;">
+					{{ clock.view('clock') }}
+					{{ weather.view('weather') }}
+					{{ transit.view('transit') }}
+				</div>
+			</div>
+			<div class="flxl-row" flxl-flex="0">
+				<div class="flxl-column" flxl-flex="1">
+					{{ ticker.view('ticker') }}
+				</div>
+			</div>
+		</div>
     </div>
 {% endblock %}

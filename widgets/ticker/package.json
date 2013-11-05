@@ -1,0 +1,12 @@
+{
+  "name": "flexical-ticker",
+  "version": "0.0.1",
+  "description": "Scrolls through a list of text",
+  "dependencies": {
+    "request": "*",
+	"jquery": "*"
+  },
+  "repository": "",
+  "author": "kc",
+  "license": "BSD"
+}
