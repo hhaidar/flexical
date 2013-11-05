@@ -4,7 +4,7 @@ var updated = false;
 (function($) {
 	Flexical.views.ticker = Flexical.Widget.extend({
 		init: function() {
-			this.$('#marquee').marquee().on('stop', function(){
+			this.$('[data-id=marquee]').get(0).marquee().on('stop', function(){
 				if (updated) {
 					updated = false;
 					$(this).children(0).children().remove();

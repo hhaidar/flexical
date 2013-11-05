@@ -21,7 +21,13 @@ INTERNAL = {
   }
 };
 
+TICKER_AUTH = {
+  user: 'board',
+  pass: 'zUDk9F0qWOT1oyX9RkYf'
+};
+
 module.exports = {
   INTERNAL: INTERNAL,
-  PRODUCTION: PRODUCTION
+  PRODUCTION: PRODUCTION,
+  TICKER_AUTH: TICKER_AUTH
 };

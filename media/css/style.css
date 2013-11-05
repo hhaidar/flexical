@@ -5436,48 +5436,4 @@ time {
   width: 50%;
   float: left;
 }
-
-#marqueeContentWrapper div {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.flxl-widget-ticker {
-  background-color: #FF3333;
-  color: #FFFFFF;
-  overflow: hidden;
-  padding-top:0;
-  padding-bottom:0;
-}
-
-.flxl-widget-ticker::before{
-    background-image: linear-gradient( top,
-		rgba( 255, 51, 51, 1 ) 0%,
-		rgba( 255, 51, 51, 0 ) 25%,
-		rgba( 255, 51, 51, 0 ) 75%, 
-		rgba( 255, 51, 51, 1 ) 100%);
-	background-image: -moz-linear-gradient( top, 
-		rgba( 255, 51, 51, 1 ) 0%,
-		rgba( 255, 51, 51, 0 ) 25%,
-		rgba( 255, 51, 51, 0 ) 75%, 
-		rgba( 255, 51, 51, 1 ) 100%);
-	background-image: -ms-linear-gradient( top,
-		rgba( 255, 51, 51, 1 ) 0%, 
-		rgba( 255, 51, 51, 0 ) 25%,
-		rgba( 255, 51, 51, 0 ) 75%, 
-		rgba( 255, 51, 51, 1 ) 100% );
-	background-image: -o-linear-gradient( top, 
-		rgba( 255, 51, 51, 1 ) 0%, 
-		rgba( 255, 51, 51, 0 ) 25%,
-		rgba( 255, 51, 51, 0 ) 75%, 
-		rgba( 255, 51, 51, 1 ) 100% );
-	background-image: -webkit-linear-gradient( top,
-		rgba( 255, 51, 51, 1 ) 0%,
-		rgba( 255, 51, 51, 0 ) 25%,
-		rgba( 255, 51, 51, 0 ) 75%,  
-		rgba( 255, 51, 51, 1 ) 100% );
-    height: 100%;
-    position: absolute;
-    width: 100%;
-	content: "\00a0";
-}
+	

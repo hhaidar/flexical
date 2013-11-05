@@ -2,11 +2,23 @@ var _ = require('underscore'),
 	$ = require('jquery'),
     request = require('request');
 
+function getAuthHeader(auth_data) {
+	if (auth_data) {	
+		if (auth_data.user && auth_data.pass) {
+			return {'Authorization': 'Basic ' + new Buffer(auth_data.user + ':' + auth_data.pass).toString('base64')}
+		} else if (auth_data.token && auth_data.token_header) {
+			var header = auth_data.token_header;
+			return {header: auth_data.token};
+		}
+	}
+	console.log('No auth data!');
+}
+
 var tickerJob = function(job) {
-	args = {
+	var args = {
 		'method': 'get',
 		'url': job.options.url,
-		'headers': job.options.headers
+		'headers': getAuthHeader(job.options.auth)
 	};
 
 	if (args['url'].match(/^https/g)) {
@@ -18,16 +30,19 @@ var tickerJob = function(job) {
 		var all_headlines = [];
 
 		if (args['url'].match(/\.rss$/g)) {
-			// For rss feeds we display the title
-			$(data).find("item").find("title").each(function(index) {
+			// Display all titles in the rss feed
+			$(data).find("item title").each(function(index) {
 				all_headlines.push($(this).text());
 			});
-		}
-		else if (response.headers['content-type'].match(/application\/json/g) && job.options.json_parser) {
-			// For json conent, user needs to implement a parser that returns a list of strings
-			all_headlines = job.options.parser($.parseJSON(data));
-		}
-		else {
+		} else if (args['url'].match(/pivotaltracker\.com/g) && response.headers['content-type'].match(/application\/json/g)) {
+			// Display PivotalTracker story titles for the current iteration			
+			if (data.length > 0) {
+				for (var i = 0; i < data[0]['stories'].length; i++) {
+					var story = data[0]['stories'][i];
+					all_headlines.push(story['name']);
+				}
+			}
+		} else {
 			console.log('Unable to parse response');
 		}
 

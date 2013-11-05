@@ -1,7 +1,7 @@
 {
-  "name": "flexical-weather",
+  "name": "flexical-ticker",
   "version": "0.0.1",
-  "description": "Tells you if you should go outside.",
+  "description": "Scrolls through a list of text",
   "dependencies": {
     "request": "*",
 	"jquery": "*"

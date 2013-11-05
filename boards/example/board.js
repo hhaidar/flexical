@@ -5,30 +5,20 @@ module.exports = {
         'clock': {
             type: 'clock'
         },
+        'weather': {
+            type: 'weather',
+            options: {
+                location: 'Toronto'
+            }
+        },
         'ticker': {
             type: 'ticker',
-     	    interval: 10,
-			options: {
-				//url: "https://www.pivotaltracker.com/services/v5/projects/940864/iterations?scope=current",
-				url: 'https://melbourne.sdelements.com/userstories.rss',
-				headers: {
-					//'X-TrackerToken': ''
-					'Authorization': 'Basic ' + new Buffer('board:zUDk9F0qWOT1oyX9RkYf').toString('base64')
-				}/*,
-				json_parser: 
-					function(data) {
-						// Parser that reads story titles in PT
-						var story_titles = [];
-						if (data.length > 0) {
-							for (var i = 0; i < data[0]['stories'].length; i++) {
-								var story = data[0]['stories'][i];
-								story_titles.push(story['name']);
-							}
-						}
-						return story_titles;
-					}
-				*/
-			}
+            interval: 10,
+            options: {
+                //url: "https://www.pivotaltracker.com/services/v5/projects/940864/iterations?scope=current",
+                url: 'https://melbourne.sdelements.com/userstories.rss',
+                auth: require('./settings.js').TICKER_AUTH
+            }
         },
         'transit': {
             type: 'transit',

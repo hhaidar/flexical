@@ -96,7 +96,7 @@
             var $marquee = $(this),
                 width = ($marquee.attr('width') || $marquee.width()) + 'px',
                 height = ($marquee.attr('height') || $marquee.height()) + 'px';
-            var $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + width + '; height: ' + height + '; overflow: hidden;"><div style="float: left; white-space: nowrap; width:100%;" id="marqueeContentWrapper">' + $marquee.html() + '</div></div>').next(),
+            var $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + width + '; height: ' + height + '; overflow: hidden;"><div style="float: left; white-space: nowrap; width:100%;" ="marqueeContentWrapper">' + $marquee.html() + '</div></div>').next(),
                 marqueeRedux = $marqueeRedux.get(0),
                 hitedge = 0,
                 direction = ($marquee.attr('direction') || 'left').toLowerCase(),
