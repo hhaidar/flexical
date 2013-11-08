@@ -31,10 +31,6 @@ program.version('1.0')
        .option('-p, --port <port>', 'port to run server on', parseInt)
        .parse(process.argv);
 
-var port = program.port || 3000;
-
-console.log("Port: " + port);
-
 //
 // Config
 //
@@ -64,7 +60,7 @@ app.get('/', function(req, res) {
                 name: board.name,
                 count: _.pluck(board.widgets, 'id').length
 		    }
-		});
+		})
 	});
 });
 
@@ -121,5 +117,5 @@ _.each(fs.readdirSync('./boards'), function(directory) {
 //
 // Here we go!
 //
-server.listen(port);
+server.listen(program.port || 3000);
 
