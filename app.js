@@ -1,17 +1,20 @@
+#!/usr/bin/env node
+
 //
 // Flexical - The Fantastically Flexible Status Board
 //
 
-var fs = require('fs'),
-    _ = require('underscore'),
-    path = require('path'),
+var cons = require('consolidate'),
     express = require('express'),
-    socketio = require('socket.io'),
-    cons = require('consolidate'),
-    swig = require('swig'),
+    fs = require('fs'),
     http = require('http'),
+    path = require('path'),
+    program = require('commander'),
+    socketio = require('socket.io'),
+    swig = require('swig'),
+    uglifyCSS = require('uglifycss'),
     uglifyJS = require('uglify-js'),
-    uglifyCSS = require('uglifycss');
+    _ = require('underscore');
 
 var app = express(),
     server = http.createServer(app),
@@ -20,6 +23,17 @@ var app = express(),
 var Board = require('./lib/board.js');
 
 var boards = {};
+
+//
+// Process command line arguments
+//
+program.version('1.0')
+       .option('-p, --port <port>', 'port to run server on', parseInt)
+       .parse(process.argv);
+
+var port = program.port || 3000;
+
+console.log("Port: " + port);
 
 //
 // Config
@@ -73,7 +87,7 @@ _.each(fs.readdirSync('./boards'), function(directory) {
         });
         res.set({
             'Content-Type': 'text/javascript'
-        })
+        });
         res.send(uglifyJS.minify(files, {
             compress: false,
         }).code);
@@ -86,7 +100,7 @@ _.each(fs.readdirSync('./boards'), function(directory) {
         });
         res.set({
             'Content-Type': 'text/css'
-        })
+        });
         res.send(uglifyCSS.processFiles(files, {
             compress: false,
         }));
@@ -107,4 +121,5 @@ _.each(fs.readdirSync('./boards'), function(directory) {
 //
 // Here we go!
 //
-server.listen(3000);
+server.listen(port);
+

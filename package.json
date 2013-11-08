@@ -4,6 +4,7 @@
   "description": "Our little status board.",
   "main": "app.js",
   "dependencies": {
+    "commander": "*",
     "express": "*",
     "consolidate": "*",
     "swig": "0.14.0",
