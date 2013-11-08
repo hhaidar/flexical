@@ -1,17 +1,12 @@
 (function(W) {
     var Flexical = window.Flexical || {};
+    Flexical.coreViews = Flexical.coreViews || {};
     Flexical.views = Flexical.views || {};
     //
     // Board
     //
     Flexical.Board = Backbone.View.extend({
         el: 'body',
-        keys: {
-            'left': 'next',
-            'right': 'prev',
-            'up': 'up',
-            'down': 'down'
-        },
         initialize: function() {
             this.widgets = {};
             _.each(this.options.widgets, function(widget) {
@@ -24,15 +19,12 @@
         render: function() {
             this.$('.flxl-connection-status').addClass('hide');
             this.$('.flxl-board').addClass('hide');
-            this.slider = this.$('.flxl-slider').owlCarousel({
-                singleItem: true,
-                navigation: false,
-                pagination: false,
-                responsive: true,
-                autoHeight: true,
-                lazyEffect: false,
-                rewindNav: false
-            }).data('owlCarousel');
+            //
+            // Slider
+            //
+            if (this.$('.flxl-slider').length > 0) {
+                this.slider = new Flexical.coreViews.Slider();
+            }
         },
         listen: function() {
             var that = this;
@@ -67,12 +59,35 @@
                     }, 200);
                 }, 1 * 1000);
             }
+        }
+    });
+    //
+    // Board Sub-views
+    //
+    Flexical.coreViews.Slider = Backbone.View.extend({
+        el: '.flxl-slider',
+        keys: {
+            'right': 'next',
+            'left': 'prev',
+            'up': 'up',
+            'down': 'down'
+        },
+        initialize: function() {
+            this.slider = this.$el.owlCarousel({
+                singleItem: true,
+                navigation: false,
+                pagination: false,
+                responsive: true,
+                autoHeight: true,
+                lazyEffect: false,
+                rewindNav: false
+            }).data('owlCarousel');
         },
         down: function() {
-            this.$('.flxl-slider').css('-webkit-transform', 'scale(0.8)')
+            this.$el.css('-webkit-transform', 'scale(0.8)')
         },
         up: function() {
-            this.$('.flxl-slider').css('-webkit-transform', 'scale(1)')
+            this.$el.css('-webkit-transform', 'scale(1)')
         },
         prev: function() {
             this.slider.prev();
@@ -106,5 +121,8 @@
             this.trigger('loaded');
         }
     });
+    //
+    // Let's go!
+    //
     window.Flexical = Flexical;
 })();
