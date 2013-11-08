@@ -10,19 +10,25 @@
 {% import '../widgets/transit/view.html' as transit %}
 
 {% block board %}
+<div class="flxl-slider">
+    <div class="flxl-board">
+        <div class="flxl-column" flxl-flex="0">
+            {{ clock.view('clock') }}
+            {{ weather.view('weather') }}
+        </div>
+        <div class="flxl-column" flxl-flex="1">
+            {{ servers.view('production-servers', 'Production Servers') }}
+        </div>
+    </div><!-- board end -->
     <div class="flxl-board">
         <div class="flxl-row">
             <div class="flxl-column" flxl-flex="1">
-                {{ servers.view('production-servers', 'Production Servers') }}
-            </div>
-            <div class="flxl-column" flxl-flex="1">
                 {{ servers.view('internal-servers', 'Internal Servers') }}
             </div>
-            <div class="flxl-column" flxl-flex="0" style="-webkit-flex: 750px 0;">
-                {{ clock.view('clock') }}
-                {{ weather.view('weather') }}
+            <div class="flxl-column" flxl-flex="1">
                 {{ transit.view('transit') }}
             </div>
         </div>
-    </div>
+    </div><!-- board end -->
+</div><!-- slider end -->
 {% endblock %}

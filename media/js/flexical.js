@@ -1,5 +1,6 @@
 (function(W) {
     var Flexical = window.Flexical || {};
+    Flexical.coreViews = Flexical.coreViews || {};
     Flexical.views = Flexical.views || {};
     //
     // Board
@@ -18,6 +19,12 @@
         render: function() {
             this.$('.flxl-connection-status').addClass('hide');
             this.$('.flxl-board').addClass('hide');
+            //
+            // Slider
+            //
+            if (this.$('.flxl-slider').length > 0) {
+                this.slider = new Flexical.coreViews.Slider();
+            }
         },
         listen: function() {
             var that = this;
@@ -55,6 +62,41 @@
         }
     });
     //
+    // Board Sub-views
+    //
+    Flexical.coreViews.Slider = Backbone.View.extend({
+        el: '.flxl-slider',
+        keys: {
+            'right': 'next',
+            'left': 'prev',
+            'up': 'up',
+            'down': 'down'
+        },
+        initialize: function() {
+            this.slider = this.$el.owlCarousel({
+                singleItem: true,
+                navigation: false,
+                pagination: false,
+                responsive: true,
+                autoHeight: true,
+                lazyEffect: false,
+                rewindNav: false
+            }).data('owlCarousel');
+        },
+        down: function() {
+            this.$el.css('-webkit-transform', 'scale(0.8)')
+        },
+        up: function() {
+            this.$el.css('-webkit-transform', 'scale(1)')
+        },
+        prev: function() {
+            this.slider.prev();
+        },
+        next: function() {
+            this.slider.next();
+        }
+    });
+    //
     // Widget
     //
     Flexical.Widget = Backbone.Epoxy.View.extend({
@@ -79,5 +121,8 @@
             this.trigger('loaded');
         }
     });
+    //
+    // Let's go!
+    //
     window.Flexical = Flexical;
 })();
