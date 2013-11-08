@@ -36,7 +36,7 @@ winston.add(winston.transports.File, { filename: 'logs/info.log' });
 //
 // From Flexical with Love
 //
-winston.log('info', 'Greetings Earth, I am '.green + 'Flexical'.magenta.bold)
+winston.log('info', 'Greetings Earth, I am '.cyan + 'Flexical'.magenta.bold)
 
 //
 // Servers
