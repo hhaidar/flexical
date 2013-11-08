@@ -11,7 +11,8 @@
     "underscore": "*",
     "socket.io": "*",
     "uglify-js": "*",
-    "uglifycss": "*"
+    "uglifycss": "*",
+    "winston": "*",
   },
   "scripts": {
     "postinstall": "./postinstall"

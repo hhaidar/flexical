@@ -4,7 +4,8 @@
 // Flexical - The Fantastically Flexible Status Board
 //
 
-var cons = require('consolidate'),
+var _ = require('underscore'),
+    cons = require('consolidate'),
     express = require('express'),
     fs = require('fs'),
     http = require('http'),
@@ -14,11 +15,7 @@ var cons = require('consolidate'),
     swig = require('swig'),
     uglifyCSS = require('uglifycss'),
     uglifyJS = require('uglify-js'),
-    _ = require('underscore');
-
-var app = express(),
-    server = http.createServer(app),
-    io = socketio.listen(server);
+    winston = require('winston');
 
 var Board = require('./lib/board.js');
 
@@ -32,8 +29,29 @@ program.version('1.0')
        .parse(process.argv);
 
 //
-// Config
+// Logger
 //
+winston.add(winston.transports.File, { filename: 'logs/info.log' });
+
+//
+// From Flexical with Love
+//
+winston.log('info', 'Greetings Earth, I am '.green + 'Flexical'.magenta.bold)
+
+//
+// Servers
+//
+var app = express(),
+    server = http.createServer(app),
+    io = socketio.listen(server, {
+        logger: {
+            debug: winston.debug,
+            info: winston.info,
+            error: winston.error,
+            warn: winston.warn
+        }
+    });
+
 app.configure(function() {
     app.engine('.html', cons.swig);
     app.set('view engine', 'html');
@@ -45,8 +63,9 @@ app.configure(function() {
     app.set('views', 'templates');
     app.use('/media', express.static(__dirname + '/media'));
 });
+
 io.set('transports', ['websocket']);
-io.set('log level', 0);
+io.set('log level', 1);
 
 //
 // Home
@@ -76,6 +95,7 @@ _.each(fs.readdirSync('./boards'), function(directory) {
     board.path = path.resolve('./boards/' + directory);
     board.url = '/boards/' + board.id;
     board.io = io.of('/' + board.id);
+    board.logger = winston;
     app.use(board.url + '/assets', express.static(board.path + '/assets'));
     app.get(board.url + '/bundle.js', function(req, res) {
         var files = _.map(_.uniq(_.pluck(board.widgets, 'type')), function(type) {
@@ -118,4 +138,3 @@ _.each(fs.readdirSync('./boards'), function(directory) {
 // Here we go!
 //
 server.listen(program.port || 3000);
-
