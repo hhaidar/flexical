@@ -31,7 +31,10 @@ program.version('1.0')
 //
 // Logger
 //
-winston.add(winston.transports.File, { filename: 'logs/info.log' });
+winston.add(winston.transports.DailyRotateFile, {
+    filename: 'logs/flexical.log',
+    datePattern: '.yyyy-MM-dd'
+});
 
 //
 // From Flexical with Love
@@ -91,11 +94,13 @@ _.each(fs.readdirSync('./boards'), function(directory) {
         // No board.js found, nothing to do here
         return;
     }
-    var board = new Board(require('./boards/' + directory + '/board.js'));
-    board.path = path.resolve('./boards/' + directory);
-    board.url = '/boards/' + board.id;
-    board.io = io.of('/' + board.id);
-    board.logger = winston;
+    var boardParams = require('./boards/' + directory + '/board.js');
+    var board = new Board(_.extend(boardParams, {
+        io: io.of('/' + boardParams.id),
+        url: '/boards/' + boardParams.id,
+        path: path.resolve('./boards/' + directory),
+        logger: winston
+    }));
     app.use(board.url + '/assets', express.static(board.path + '/assets'));
     app.get(board.url + '/bundle.js', function(req, res) {
         var files = _.map(_.uniq(_.pluck(board.widgets, 'type')), function(type) {
