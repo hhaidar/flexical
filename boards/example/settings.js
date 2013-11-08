@@ -22,8 +22,9 @@ INTERNAL = {
 };
 
 TICKER_AUTH = {
-  user: 'board',
-  pass: 'zUDk9F0qWOT1oyX9RkYf'
+  //user: 'board',
+  //pass: 'zUDk9F0qWOT1oyX9RkYf',
+  token: {'X-TrackerToken': '737cb4d81ccb8d2a35548ce9c3571c4a'}
 };
 
 module.exports = {

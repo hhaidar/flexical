@@ -15,8 +15,8 @@ module.exports = {
             type: 'ticker',
             interval: 10,
             options: {
-                //url: "https://www.pivotaltracker.com/services/v5/projects/940864/iterations?scope=current",
-                url: 'https://melbourne.sdelements.com/userstories.rss',
+                url: "https://www.pivotaltracker.com/services/v5/projects/940864/iterations?scope=current",
+                //url: 'https://melbourne.sdelements.com/userstories.rss',
                 auth: require('./settings.js').TICKER_AUTH
             }
         },

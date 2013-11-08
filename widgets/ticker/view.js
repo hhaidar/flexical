@@ -1,29 +1,40 @@
-(function($) {
+(function($jQuery) {
     var headlines = [];
     var updated = false;
-	Flexical.views.ticker = Flexical.Widget.extend({
-		init: function() {
-			this.$('marquee').marquee().on('stop', function(){
-				if (updated) {	
+    var ticker = null;
+           
+    var ListItemView = Backbone.View.extend({
+        tagName: "div",
+        initialize: function() {
+            this.$el.text( this.model.get("headline") );
+        }
+    });
+
+    // Collection defining a Model and View:
+    var ListCollection = Backbone.Collection.extend({
+        model: Backbone.Model,
+        view: ListItemView
+    });
+
+    Flexical.views.ticker = Flexical.Widget.extend({
+        init: function() {
+            ticker = this;
+            this.collection = new ListCollection();
+            this.$('marquee').marquee().on('stop', function(){
+                if (updated) {
                     updated = false;
-					$(this).children(0).children().remove();
-					marqueeContent = '<div>User Stories</div>';
-
-					for (var i = 0; i < headlines.length; i++){
-						marqueeContent += '<div style="overflow:hidden;text-overflow:ellipsis">' + headlines[i] + '</div>';
-					}
-
-					$(this).children(0).html(marqueeContent);  
-				}
-			});
-		},
-		update: function(ticker) {
-			var new_headlines = (ticker.headlines);
-			if (headlines != new_headlines) {
-				headlines = new_headlines;
-				updated = true;
-			}
-		}
-	});
+                    //$(this).children(0).children().remove();
+                    //ticker.collection.reset(headlines);
+                }
+            });
+        },
+        update: function(ticker) {
+            var new_headlines = (ticker.headlines);
+            if (headlines != new_headlines) {
+                headlines = new_headlines;
+                headlines.unshift({'headline': 'User Stories:'});
+                updated = true;
+            }
+        }
+    });
 })(jQuery);
-
