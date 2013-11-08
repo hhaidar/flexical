@@ -42,9 +42,15 @@ io.set('log level', 0);
 // Home
 //
 app.get('/', function(req, res) {
-	res.render('boards.html', {
+	res.render('home.html', {
 		media_url: '/media',
-		boards: _.pluck(boards, 'name')
+		boards: _.map(boards, function(board) {
+            return {
+                id: board.id,
+                name: board.name,
+                count: _.pluck(board.widgets, 'id').length
+		    }
+		});
 	});
 });
 

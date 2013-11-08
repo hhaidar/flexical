@@ -5044,6 +5044,41 @@ body {
 time {
   display: block;
 }
+.flxl-home .boards,
+.flxl-home .board {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.flxl-home .boards {
+  padding: 25px;
+}
+.flxl-home .board {
+  background: #fff;
+  font-size: 30px;
+  margin-bottom: 25px;
+  border-left: 5px #d70033 solid;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.flxl-home .board:hover {
+  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+.flxl-home .board a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+}
+.flxl-home .board .name {
+  margin: 0;
+  color: #aaa;
+}
 .flxl-loading {
   background: #2c3e50;
   width: 100%;
