@@ -23,8 +23,8 @@
             this.$('marquee').marquee().on('stop', function(){
                 if (updated) {
                     updated = false;
-                    //$(this).children(0).children().remove();
-                    //ticker.collection.reset(headlines);
+                    $(this).children(0).children().remove();
+                    ticker.collection.reset(headlines);
                 }
             });
         },

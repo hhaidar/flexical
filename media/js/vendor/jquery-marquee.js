@@ -99,7 +99,7 @@
                 height = $marquee.attr('height') || $marquee.height(),
                 widthWithUnits = (typeof(width) == 'string' ? width : width + 'px'),
                 heightWithUnits = (typeof(height) == 'string' ? height : height + 'px'),
-                $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + widthWithUnits + '; height: ' + heightWithUnits + '; overflow: hidden;"><div class="marqueeContentWrapper" style="width:100%;float: left; white-space: nowrap;" data-id="contentWrapper" data-bind="collection:$collection">' + $marquee.html() + '</div></div>').next(),
+                $marqueeRedux = $marquee.after('<div ' + (klass ? 'class="' + klass + '" ' : '') + 'style="display: block-inline; width: ' + widthWithUnits + '; height: ' + heightWithUnits + '; overflow: hidden;"><div class="marqueeContentWrapper" style="width:100%;float: left; white-space: nowrap;" data-bind="collection:$collection">' + $marquee.html() + '</div></div>').next(),
                 marqueeRedux = $marqueeRedux.get(0),
                 hitedge = 0,
                 direction = ($marquee.attr('direction') || 'left').toLowerCase(),
@@ -128,7 +128,7 @@
             } else {
                 $marqueeRedux.find('> div').css('padding', heightWithUnits + ' 0');
             }
-            
+
             // events
             $marqueeRedux.bind('stop', function () {
                 $marqueeRedux.data('paused', true);
