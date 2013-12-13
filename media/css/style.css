@@ -5171,9 +5171,9 @@ time {
 }
 .flxl-connection-status {
   background: rgba(0, 0, 0, 0.5);
-  width: 250px;
-  height: 250px;
-  line-height: 250px;
+  width: 300px;
+  height: 300px;
+  line-height: 300px;
   text-align: center;
   color: #fff;
   font-size: 8em;
@@ -5182,17 +5182,17 @@ time {
   left: 50%;
   margin-top: -150px;
   margin-left: -150px;
-  -webkit-border-radius: 100%;
+  -webkit-border-radius: 10px;
   -webkit-background-clip: padding-box;
-  -moz-border-radius: 100%;
+  -moz-border-radius: 10px;
   -moz-background-clip: padding;
-  border-radius: 100%;
+  border-radius: 10px;
   background-clip: padding-box;
-  -webkit-animation: blink 1s infinite linear alternate;
-  -moz-animation: blink 1s infinite linear alternate;
-  -o-animation: blink 1s infinite linear alternate;
-  -ms-animation: blink 1s infinite linear alternate;
-  animation: blink 1s infinite linear alternate;
+  -webkit-animation: blink 2s infinite linear alternate;
+  -moz-animation: blink 2s infinite linear alternate;
+  -o-animation: blink 2s infinite linear alternate;
+  -ms-animation: blink 2s infinite linear alternate;
+  animation: blink 2s infinite linear alternate;
 }
 .flxl-connection-status.hide {
   display: none;
