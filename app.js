@@ -65,7 +65,7 @@ app.configure(function() {
 });
 
 io.set('transports', ['websocket']);
-io.set('log level', 1);
+io.set('log level', 0);
 
 //
 // Home
