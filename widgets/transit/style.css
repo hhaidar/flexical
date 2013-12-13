@@ -1,66 +1,51 @@
-.flxl-widget-transit ul {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
-.flxl-widget-transit .flxl-transit-header {
-  width: 670px;
-}
-.flxl-widget-transit .flxl-transit-header .flxl-transit-logo {
-  float: left;
-  height: 70px;
-}
-.flxl-widget-transit .flxl-transit-header .flxl-transit-title {
-  font-size: 55px;
-}
-.flxl-widget-transit .flxl-transit-stop-list {
-  width: 668px;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop {
-  background: #fff;
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 10px;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-ttc-logo {
-  float: left;
-  height: 50px;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-name {
-  color: #0fbbf1;
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 10px;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time {
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time .flxl-transit-stop-remaining {
-  float: right;
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-green {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#06f557), to(#029f37));
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-yellow {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc845), to(#ff8607));
-}
-.flxl-widget-transit .flxl-transit-stop-list .flxl-transit-stop .flxl-transit-stop-time.flxl-transit-stop-time-colour-red {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff2d07), to(#a61c02));
-  -webkit-animation: pulsate 1s ease-out;
-  -webkit-animation-iteration-count: infinite;
-}
 @-webkit-keyframes pulsate {
   0% {
-    color: #fff;
+    opacity: 1;
   }
   50% {
-    color: #faa;
+    opacity: 0.5;
   }
   100% {
-    color: #fff;
+    opacity: 1;
   }
+}
+.flxl-widget-transit ul,
+.flxl-widget-transit li {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.flxl-widget-transit img {
+  height: 60px;
+  vertical-align: middle;
+}
+.flxl-widget-transit .flxl-transit-stop {
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.flxl-widget-transit .flxl-transit-stop-name {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.flxl-widget-transit .flxl-transit-stop-direction-times {
+  text-align: center;
+}
+.flxl-widget-transit .flxl-transit-stop-time {
+  background-color: #333;
+  font-size: 1.5em;
+  padding: 4px 12px;
+  margin-right: 5px;
+  display: inline;
+  border-radius: 5px;
+}
+.flxl-widget-transit .flxl-transit-stop-time.flxl-transit-stop-time-green {
+  background-color: #00836e;
+}
+.flxl-widget-transit .flxl-transit-stop-time.flxl-transit-stop-time-yellow {
+  background-color: #e3BB00;
+}
+.flxl-widget-transit .flxl-transit-stop-time.flxl-transit-stop-time-red {
+  background-color: #920011;
+  -webkit-animation: pulsate 1s ease-out infinite;
 }

@@ -85,11 +85,11 @@
 
                             // Build a pretty message for the remaining time
                             if (stop_time === 0) {
-                                stop_time_message = 'Now Arriving';
+                                stop_time_message = 'Now';
                             } else if (stop_time === 1) {
-                                stop_time_message = '1 minute';
+                                stop_time_message = '1 min';
                             } else {
-                                stop_time_message = stop_time + ' minutes';
+                                stop_time_message = stop_time + ' min';
                             }
 
                             // The time remaining is green by default
