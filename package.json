@@ -5,14 +5,10 @@
   "main": "app.js",
   "dependencies": {
     "commander": "*",
-    "express": "*",
-    "consolidate": "*",
-    "swig": "0.14.0",
     "underscore": "*",
-    "socket.io": "*",
-    "uglify-js": "*",
-    "uglifycss": "*",
     "winston": "*",
+    "nunjucks": "~1.0.5",
+    "express.io": "~1.1.13"
   },
   "scripts": {
     "postinstall": "./postinstall"
