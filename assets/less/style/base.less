@@ -1,0 +1,252 @@
+/*********************
+ * Flexical
+ *********************/
+
+* {
+    .box-sizing(border-box);
+}
+
+html,
+body {
+    background: #111;
+    height: 100%;
+    color: #eee;
+    font-family: 'Open Sans', Helvetica;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.fx-board {
+    background: #222;
+    width: 1920px;
+    height: 1080px;
+    padding: 4px;
+    margin-top: -1080px / 2;
+    margin-left: -1920px / 2;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    .flex-display;
+    .flex-direction(column);
+    .justify-content(center);
+    &:before {
+        .gradient(radial-gradient(circle, transparent, rgba(18, 41, 77, 0.9)));
+        .animation(whoa-background 5s linear alternate infinite);
+        .size(100%);
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@-webkit-keyframes whoa-background {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+.fx-header {
+    font-size: 40px;
+    padding: 0 20px;
+    .flex-display;
+    & > * {
+        vertical-align: top;
+        .flex(1);
+    }
+    .fa {
+        vertical-align: inherit;
+        margin-top: 7px;
+    }
+}
+
+.fx-header-title {
+    font-size: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: inherit;
+    margin: 0;
+}
+
+.fx-header-time {
+    text-align: right;
+}
+
+.fx-row,
+.fx-column {
+    .flex-display;
+    .flex(1);
+}
+
+.fx-column {
+    .flex-direction(column);
+}
+
+.fx-widget {
+    background: rgba(0, 0, 0, .2);
+    padding: 40px;
+    margin: 4px;
+    position: relative;
+    .flex(1);
+    &.fx-widget-error {
+        background: rgba(191, 30, 75, .9);
+    }
+}
+
+.fx-widget-heading {
+    font-family: Aldrich;
+    letter-spacing: 2px;
+    font-size: 60px;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.fx-widget-subheading {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    small {
+        opacity: 0.5;
+    }
+}
+
+.fx-stories,
+.fx-story {
+    display: block;
+    padding: 0;
+}
+
+.fx-story {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-left: 15px #eee solid;
+    position: relative;
+    &.fx-story-success {
+        border-left-color: #00a600;
+    }
+    &.fx-story-warning {
+        border-left-color: #dc572e;
+    }
+    &.fx-story-danger {
+        border-left-color: #bf1e4b;
+    }
+}
+
+.fx-story-heading {
+    font-size: 30px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 100%;
+    margin: 0;
+}
+
+.fx-statuses,
+.fx-status {
+    display: block;
+    padding: 0;
+}
+
+.fx-status {
+    min-width: 100px;
+    width: 20%;
+    text-align: center;
+    padding: 20px;
+    float: left;
+    position: relative;
+    &:before {
+        background: #2E8DEF;
+        content: '';
+        margin: 2px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    &.fx-status-success:before {
+        background: #00a600;    
+    }
+    &.fx-status-warning:before {
+        background: #dc572e;    
+    }
+    &.fx-status-danger:before {
+        background: #bf1e4b;    
+    }
+    & > * {
+        z-index: 1;
+        position: relative;
+    }
+    .fx-statuses-3 & {
+        width: 33.333%;
+    }
+    .fx-statuses-4 & {
+        width: 25%;
+    }
+}
+
+.fx-status-label {
+    text-transform: uppercase;
+    font-size: 30px;
+    margin: 0;
+}
+
+.fx-progress {
+    height: 100px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    .bar {
+        background: #fff;
+        height: inherit;
+        float: left;
+    }
+    .bar-red {
+        background-color: #BF1E4B;
+    }
+    .bar-green {
+        background-color: #00A600;
+    }
+    .bar-orange {
+        background-color: #DC572E;
+    }
+    .bar-blue {
+        background-color: #2E8DEF;
+    }
+    .count {
+        text-align: center;
+        font-size: 35px;
+        position: relative;
+        bottom: -100%;
+        margin-top: 10px;
+        &:before {
+            background: #fff;
+            .size(16px);
+            content: ' ';
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            margin-left: -8px;
+            .border-radius(100%);
+        }
+        &:after {
+            background: #fff;
+            height: 60px;
+            width: 2px;
+            content: ' ';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            margin-left: -1px;
+        }
+    }
+}

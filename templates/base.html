@@ -1,14 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!doctype html>
+<html->
 	<head>
-		<meta charset="utf-8">
-		<title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8" />
+		<title>{% block title %}Flexical{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{{ media_url }}/css/style.css" media="all">
-        {% block head %}{% endblock %}
+        {% block css %}{% endblock %}
+        {% block js %}{% endblock %}
 	</head>
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block class %}{% endblock %}">
         {% block body %}{% endblock %}
-        {% block templates %}{% endblock %}
-        {% block boardjs %}{% endblock %}
 	</body>
 </html>

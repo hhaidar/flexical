@@ -27,7 +27,7 @@ program.version('0.3.0')
 var app = express().http().io();
 
 // Public
-app.use('/media', express.static(__dirname + '/media'));
+app.use('/assets', express.static(__dirname + '/assets'));
 
 // Templates
 nunjucks.configure([process.cwd(), __dirname + '/templates'], {
