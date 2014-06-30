@@ -33,6 +33,8 @@ app.use('/media', express.static(__dirname + '/media'));
 nunjucks.configure([process.cwd(), __dirname + '/templates'], {
     autoescape: true,
     express: app
+}).addExtension('widget', function() {
+    this.tags = ['widget'];
 });
 
 // HTTP Middlewares
@@ -50,17 +52,22 @@ winston.log('info', 'Greetings Earth, I am '.cyan + 'Flexical'.magenta.bold)
 //
 // Make Board
 //
+
+var widgets = [];
+
 var board = require(process.cwd() + '/board.js');
 
 winston.log('info', 'Found ' + board.name.bold);
 
 _.each(board.widgets, function(widget) {
-    console.log(widget);
+    widgets.push = widget;
 });
 
 app.get('/', function(req, res) {
     res.render('board.html', {
-        
+        widget: function(type, instance) {
+            return nunjucks.render('/widgets/' + type + '/widget.html')
+        }
     });
 });
 

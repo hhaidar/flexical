@@ -2,46 +2,10 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{{ bundle_css_url }}" media="all">
-    <link rel="stylesheet" type="text/css" href="{{ media_url }}/js/vendor/owl/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="{{ media_url }}/js/vendor/owl/owl.theme.css">
     <script src="/socket.io/socket.io.js" type="text/javascript"></script>
     <script src="{{ media_url }}/js/vendor/jquery.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/moment.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/underscore.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/backbone.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/backbone.keys.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/epoxy.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/handlebars.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/skycons.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/owl/owl.carousel.js" type="text/javascript"></script>
-    <script src="{{ media_url }}/js/vendor/chart.js" type="text/javascript"></script>
 {% endblock %}
 
 {% block body %}
     {% block board %}{% endblock %}
-    <div class="flxl-loading">
-        <div class="flxl-loading-logo"></div>
-         <div class="flxl-loading-status"></div>
-        <div class="flxl-loading-indicator"></div>
-    </div>
-    <div class="flxl-connection-status" class="hide">
-        <i class="disconnected icon-warning-sign"></i>
-    </div>
-    <script src="{{ media_url }}/js/flexical.js" type="text/javascript"></script>
-    <script src="{{ bundle_js_url }}" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function() {
-            Flexical.board = new Flexical.Board({
-                id: '{{ board.id }}',
-                widgets: {
-                    {% for widget in board.widgets %}
-                        '{{ widget.id }}': {
-                            id: '{{ widget.id }}',
-                            type: '{{ widget.type }}'
-                        },
-                    {% endfor %}
-                }
-            });
-        });
-    </script>
 {% endblock %}
