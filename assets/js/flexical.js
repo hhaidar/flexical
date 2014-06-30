@@ -2,6 +2,8 @@
  * BOARD
  */
 
+'use strict';
+
 +function($, Skycons) {
     $(window).on('load resize', function() {
         var transform;

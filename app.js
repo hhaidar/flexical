@@ -33,8 +33,19 @@ app.use('/assets', express.static(__dirname + '/assets'));
 nunjucks.configure([process.cwd(), __dirname + '/templates'], {
     autoescape: true,
     express: app
-}).addExtension('widget', function() {
+}).addExtension('widget', new function() {
     this.tags = ['widget'];
+    this.parse = function(parser, nodes, lexer) {
+        var token = parser.nextToken();
+        var args = parser.parseSignature(null, true);
+        parser.advanceAfterBlockEnd(token.value);
+        return new nodes.CallExtension(this, 'run', args);
+    }
+    this.run = function(context, type, options) {
+        var locals = context.getVariables(),
+            html = nunjucks.render('widgets/' + type + '/widget.html', options);
+        return new nunjucks.runtime.SafeString(html);
+    }
 });
 
 // HTTP Middlewares
@@ -65,9 +76,7 @@ _.each(board.widgets, function(widget) {
 
 app.get('/', function(req, res) {
     res.render('board.html', {
-        widget: function(type, instance) {
-            return nunjucks.render('/widgets/' + type + '/widget.html')
-        }
+        board: board
     });
 });
 
