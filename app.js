@@ -11,6 +11,8 @@ var _ = require('underscore'),
     nunjucks = require('nunjucks'),
     winston = require('winston');
 
+var Board = require(__dirname + '/lib/board.js');
+
 var settings = {};
 
 // Load settings
@@ -43,7 +45,7 @@ nunjucks.configure([process.cwd(), __dirname + '/templates'], {
     }
     this.run = function(context, type, options) {
         var locals = context.getVariables(),
-            html = nunjucks.render('widgets/' + type + '/widget.html', options);
+            html = nunjucks.render('widgets/flexical-' + type + '/widget.html', options);
         return new nunjucks.runtime.SafeString(html);
     }
 });
@@ -60,19 +62,12 @@ winston.add(winston.transports.File, {
 // From Flexical with Love
 winston.log('info', 'Greetings Earth, I am '.cyan + 'Flexical'.magenta.bold)
 
-//
 // Make Board
-//
-
-var widgets = [];
-
-var board = require(process.cwd() + '/board.js');
-
-winston.log('info', 'Found ' + board.name.bold);
-
-_.each(board.widgets, function(widget) {
-    widgets.push = widget;
-});
+var board = new Board({
+    options: require(process.cwd() + '/board.js'),
+    app: app,
+    winston: winston
+}).start();
 
 app.get('/', function(req, res) {
     res.render('board.html', {

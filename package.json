@@ -8,7 +8,8 @@
     "express.io": "~1.1.13",
     "commander": "~2.2.0",
     "underscore": "~1.6.0",
-    "winston": "~0.7.3"
+    "winston": "~0.7.3",
+    "later": "~1.1.6"
   },
   "scripts": {
     "start": "node app.js"
