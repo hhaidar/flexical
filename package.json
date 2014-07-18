@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "description": "Our little status board.",
   "main": "app.js",
+  "bin": {
+    "flexical": "app.js"
+  },
   "dependencies": {
     "nunjucks": "~1.0.5",
     "express.io": "~1.1.13",

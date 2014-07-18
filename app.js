@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/*********************
- * Flexical
- *********************/
+/**
+ * FLEXICAL
+ * > The fantastically flexible dashboard.
+ **/
 
 var _ = require('underscore'),
     fs = require('fs'),
@@ -63,8 +64,7 @@ winston.add(winston.transports.File, {
 winston.log('info', 'Greetings Earth, I am '.cyan + 'Flexical'.magenta.bold)
 
 // Make Board
-var board = new Board({
-    options: require(process.cwd() + '/board.js'),
+var board = new Board(require(process.cwd() + '/board.js'), {
     app: app,
     winston: winston
 }).start();
