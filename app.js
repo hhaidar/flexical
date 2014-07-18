@@ -6,7 +6,8 @@
  **/
 
 var _ = require('underscore'),
-    fs = require('fs'),
+    fs = require('fs-extra'),
+    path = require('path'),
     program = require('commander'),
     express = require('express.io'),
     nunjucks = require('nunjucks'),
@@ -21,10 +22,32 @@ if (fs.existsSync(process.cwd() + '/settings.js')) {
     settings = require(process.cwd() + '/settings.js');
 }
 
+// Logger
+winston.add(winston.transports.File, {
+    filename: __dirname + '/logs/out.log'
+});
+
 // Process command line arguments
 program.version('0.3.0')
     .option('-p, --port <port>', 'port to run server on', parseInt)
+    .option('-c, --create [path]', 'create an example board')
     .parse(process.argv);
+
+if (program.create) {
+    var destination = program.create;
+    if (typeof program.create !== 'string') {
+        destination = '.';
+    }
+    destination = path.resolve(destination);
+    fs.copy(__dirname + '/example/', destination, function(err){
+        if (err) {
+            winston.log('error', err);
+            return;
+        }
+        winston.log('info', 'success!');
+    });
+    return;
+}
 
 // Make express
 var app = express().http().io();
@@ -55,11 +78,6 @@ nunjucks.configure([process.cwd(), __dirname + '/templates'], {
 app.use(express.json());
 app.use(express.urlencoded());
 
-// Logger
-winston.add(winston.transports.File, {
-    filename: __dirname + '/logs/info.log'
-});
-
 // From Flexical with Love
 winston.log('info', 'Greetings Earth, I am '.cyan + 'Flexical'.magenta.bold)
 
@@ -69,6 +87,7 @@ var board = new Board(require(process.cwd() + '/board.js'), {
     winston: winston
 }).start();
 
+// Host Board
 app.get('/', function(req, res) {
     res.render('board.html', {
         board: board

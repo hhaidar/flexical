@@ -7,12 +7,13 @@
     "flexical": "app.js"
   },
   "dependencies": {
-    "nunjucks": "~1.0.5",
-    "express.io": "~1.1.13",
     "commander": "~2.2.0",
+    "express.io": "~1.1.13",
+    "fs-extra": "^0.10.0",
+    "later": "~1.1.6",
+    "nunjucks": "~1.0.5",
     "underscore": "~1.6.0",
-    "winston": "~0.7.3",
-    "later": "~1.1.6"
+    "winston": "~0.7.3"
   },
   "scripts": {
     "start": "node app.js"

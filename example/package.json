@@ -1,0 +1,8 @@
+{
+  "name": "flexical-example-board",
+  "version": "0.0.1",
+  "description": "An example board for Flexical!",
+  "private": "true",
+  "author": "Houssam Haidar",
+  "license": "MIT"
+}
