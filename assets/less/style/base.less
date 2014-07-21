@@ -54,17 +54,16 @@ body {
 }
 
 .fx-loading {
-    background: rgba(0,0,0,.8);
+    background: rgba(0,0,0,.99);
     .size(100%);
     font-size: 30px;
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
-    .animated;
-    .fadeIn;
     &.fx-loading-done {
-        .fadeOut;
+        .animated;
+        .zoomOut;
         -webkit-animation-delay: 1s;
         animation-delay: 1s;
     }

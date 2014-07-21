@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="fx-board" ng-controller="board" ng-class="{ 'fx-board-error': disconnected }">
+    <div class="fx-board" ng-controller="board" ng-cloak ng-class="{ 'fx-board-error': disconnected }">
         {% block board %}{% endblock %}
         <div class="fx-loading" ng-class="{ 'fx-loading-done': !connecting }">
             <img class="fx-loading-logo" src="/assets/img/loading-logo.png" />

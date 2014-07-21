@@ -1,6 +1,10 @@
 {% extends 'flexical.html' %}
 
 {% block board %}
-    {% widget 'time', id='time' %}
+    <header class="fx-header">
+        <div class="fx-header-weather">45<sup>&deg;</sup>C</div>
+        <h1 class="fx-header-title">SD Elements</h1>
+        {% widget 'time', id='time' %}
+    </header>
     {% widget 'servers', id='servers' %}
 {% endblock %}

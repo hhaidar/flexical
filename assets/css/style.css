@@ -4114,6 +4114,14 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
 /*********************
  * Flexical
  *********************/
@@ -4188,7 +4196,7 @@ body {
   }
 }
 .fx-loading {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.99);
   width: 100%;
   height: 100%;
   font-size: 30px;
@@ -4196,16 +4204,14 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+}
+.fx-loading.fx-loading-done {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-.fx-loading.fx-loading-done {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }

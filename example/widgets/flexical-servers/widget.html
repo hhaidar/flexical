@@ -1,3 +1,9 @@
 <div class="fx-widget" job-id="{{ id }}" ng-controller="widget">
-    SERVERS {{ id }}
+    <h2 class="fx-widget-heading">Servers</h2>
+    <h3 class="fx-widget-subheading"><strong>100% Up</strong>, All Day, Everyday</h3>
+    <ul class="fx-statuses">
+        <li class="fx-status" ng-repeat="server in data.servers">
+            <h4 class="fx-status-label">{{ server.name }}</h4>
+        </li>
+    </ul>
 </div>
