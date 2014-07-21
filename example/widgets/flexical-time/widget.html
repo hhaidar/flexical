@@ -1,1 +1,10 @@
-<time class="fx-header-time">4:49 PM</time>
+<time class="fx-header-time" ng-controller="flexical-time">{$ time | amDateFormat:'MMMM D' $}, <strong>{$ time | amDateFormat:'h:mmA' $}</strong></time>
+
+<script type="text/javascript">
+    angular.module('flexical')
+        .controller('flexical-time', function($scope, $interval) {
+            $interval(function() {
+                $scope.time = new Date();
+            }, 1 * 1000);
+        });
+</script>

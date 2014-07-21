@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['btford.socket-io'])
+angular.module('flexical', ['ngAnimate', 'btford.socket-io', 'angularMoment'])
   .config(function($interpolateProvider) {
       $interpolateProvider.startSymbol('{$');
       $interpolateProvider.endSymbol('$}');

@@ -3,8 +3,11 @@
 {% block js %}
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/assets/js/vendor/moment/moment.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="/assets/js/vendor/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/angular-socket-io/socket.js"></script>
+    <script type="text/javascript" src="/assets/js/vendor/angular-moment/angular-moment.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/underscore/underscore.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/skycons/skycons.js"></script>
     <script type="text/javascript" src="/assets/js/ng/app.js"></script>
@@ -16,7 +19,7 @@
 {% block body %}
     <div class="fx-board" ng-controller="board" ng-cloak ng-class="{ 'fx-board-error': disconnected }">
         {% block board %}{% endblock %}
-        <div class="fx-loading" ng-class="{ 'fx-loading-done': !connecting }">
+        <div class="fx-loading" ng-hide="!connecting">
             <img class="fx-loading-logo" src="/assets/img/loading-logo.png" />
             <i class="fx-loading-indicator fa fa-spin fa-refresh"></i>
         </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app')
+angular.module('flexical')
   .controller('board', function($scope, socket) {
       socket.on('connect', function() {
         $scope.connected = true;
