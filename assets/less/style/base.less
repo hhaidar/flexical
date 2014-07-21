@@ -39,6 +39,9 @@ body {
         top: 0;
         left: 0;
     }
+    &.fx-board-error {
+        .gradient(radial-gradient(circle, transparent, rgba(150, 41, 77, 0.9)));
+    }
 }
 
 @-webkit-keyframes whoa-background {
@@ -47,6 +50,32 @@ body {
     }
     to {
         opacity: 0.8;
+    }
+}
+
+.fx-loading {
+    background: rgba(0,0,0,.8);
+    .size(100%);
+    font-size: 30px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .animated;
+    .fadeIn;
+    &.fx-loading-done {
+        .fadeOut;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+    .fx-loading-logo {
+        margin-top: 100px;
+    }
+    .fx-loading-indicator {
+        position: absolute;
+        left: 50%;
+        margin-left: -15px;
+        bottom: 50px;
     }
 }
 

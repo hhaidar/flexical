@@ -15,6 +15,7 @@
         }
         $('.fx-board').css('transform', transform);
     });
+    /**
     $(function() {
         var skycons = new Skycons({
             color: '#fff'
@@ -22,4 +23,5 @@
         skycons.set($('.fx-header-weather canvas')[0], Skycons.CLEAR_DAY);
         skycons.play();
     });
+    **/
 }($, Skycons);

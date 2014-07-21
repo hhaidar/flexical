@@ -4,15 +4,22 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="/assets/js/vendor/angular-socket-io/socket.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/underscore/underscore.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/skycons/skycons.js"></script>
     <script type="text/javascript" src="/assets/js/ng/app.js"></script>
+    <script type="text/javascript" src="/assets/js/ng/board.js"></script>
+    <script type="text/javascript" src="/assets/js/ng/widget.js"></script>
     <script type="text/javascript" src="/assets/js/flexical.js"></script>
 {% endblock %}
 
 {% block body %}
-    <div class="fx-board">
+    <div class="fx-board" ng-controller="board" ng-class="{ 'fx-board-error': disconnected }">
         {% block board %}{% endblock %}
+        <div class="fx-loading" ng-class="{ 'fx-loading-done': !connecting }">
+            <img class="fx-loading-logo" src="/assets/img/loading-logo.png" />
+            <i class="fx-loading-indicator fa fa-spin fa-refresh"></i>
+        </div>
     </div>
 {% endblock %}
 
