@@ -1,11 +1,11 @@
 {
-  "name": "Flexical",
+  "name": "flexical",
   "version": "0.0.1",
   "description": "Our little status board.",
   "main": "app.js",
   "dependencies": {
     "commander": "*",
-    "express": "*",
+    "express": "3.4.0",
     "consolidate": "*",
     "swig": "0.14.0",
     "underscore": "*",
@@ -13,6 +13,7 @@
     "uglify-js": "*",
     "uglifycss": "*",
     "winston": "*",
+    "async": "~0.9.0"
   },
   "scripts": {
     "postinstall": "./postinstall"
